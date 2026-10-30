@@ -486,8 +486,10 @@ const BADGES=[
 const KEY='arribha4_v1';
 let DB=null;
 try{DB=JSON.parse(localStorage.getItem(KEY))}catch(e){}
-if(!DB||!DB.students)DB={students:{},current:null,settings:{pin:'1234',unlockAll:false,sound:true}};
+if(!DB||!DB.students)DB={students:{},current:null,settings:{unlockAll:false,sound:true}};
 DB.dirty=DB.dirty||[];
+delete DB.settings.pin;
+const PIN0='d17a83e5e1761d317bd28f37bf26f30fade3b82a365e51b32cf0eb90b3c8dc01';
 function localSave(){try{localStorage.setItem(KEY,JSON.stringify(DB))}catch(e){}}
 function save(){
   if(DB.current&&DB.students[DB.current]&&!DB.dirty.includes(DB.current))DB.dirty.push(DB.current);
@@ -862,8 +864,7 @@ function renderTeacher(){
     box.innerHTML=`<div class="card login" style="text-align:center">
       <div style="font-size:34px;color:var(--ink2)"><i class="fi fi-rr-lock"></i></div>
       <p style="margin:6px 0 0;font-weight:600">أدخلي رمز المرور</p>
-      <div class="pinbox">${[0,1,2,3].map(k=>`<input inputmode="numeric" maxlength="1" data-k="${k}" aria-label="رقم ${k+1}">`).join('')}</div>
-      <p class="muted" style="font-size:13px;margin:0">الرمز الافتراضي ١٢٣٤، ويمكن تغييره من الإعدادات بعد الدخول.</p></div>`;
+      <div class="pinbox">${[0,1,2,3].map(k=>`<input type="password" inputmode="numeric" pattern="[0-9]*" maxlength="1" autocomplete="off" data-k="${k}" aria-label="رقم ${k+1}">`).join('')}</div></div>`;
     const ins=[...box.querySelectorAll('.pinbox input')];
     ins.forEach((inp,k)=>{
       inp.addEventListener('input',()=>{inp.value=inp.value.replace(/[^\d٠-٩]/g,'').slice(-1);if(inp.value&&k<3)ins[k+1].focus();if(ins.every(x=>x.value))checkPin(ins)});
@@ -913,7 +914,7 @@ function renderTeacher(){
     <div class="card" style="margin-top:14px"><h3 style="font-size:16px;margin-bottom:12px"><i class="fi fi-rr-settings"></i> الإعدادات</h3>
       <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
         <div class="field"><label>فتح الدروس</label><select onchange="setUnlock(this.value==='1')"><option value="0" ${!DB.settings.unlockAll?'selected':''}>بالتدرج (بعد إنهاء السابق)</option><option value="1" ${DB.settings.unlockAll?'selected':''}>فتح جميع الدروس</option></select></div>
-        <div class="field"><label>تغيير رمز المرور (٤ أرقام)</label><div style="display:flex;gap:6px"><input id="newPin" inputmode="numeric" maxlength="4" placeholder="••••" style="flex:1;min-width:0"><button class="btn sm" onclick="changePin()">حفظ</button></div></div>
+        <div class="field"><label>تغيير رمز المرور (٤ أرقام)</label><div style="display:flex;gap:6px"><input id="newPin" type="password" inputmode="numeric" pattern="[0-9]*" autocomplete="new-password" maxlength="4" placeholder="••••" style="flex:1;min-width:0"><button class="btn sm" onclick="changePin()">حفظ</button></div></div>
       </div>
       <p class="muted" style="font-size:13px">تقدّم الطالبات يُحفظ في قاعدة البيانات ويصل من جميع الأجهزة، وتتحدث اللوحة تلقائيًا كل ٣٠ ثانية. الإعدادات ورمز المرور تُطبَّق على كل الأجهزة.</p>
       <button class="btn ghost sm danger" onclick="resetAll()"><i class="fi fi-rr-trash"></i> حذف جميع البيانات</button>
@@ -923,15 +924,15 @@ const toEn=s=>s.replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d));
 async function checkPin(ins){
   const v=toEn(ins.map(x=>x.value).join(''));
   await pullSettings();
-  const h=DB.settings.pinHash?await sha(v):null;
-  const ok=DB.settings.pinHash&&h?h===DB.settings.pinHash:v===DB.settings.pin;
+  const h=await sha(v);
+  const ok=!!h&&h===(DB.settings.pinHash||PIN0);
   if(ok){teacherOK=true;tClass='all';TD=null;cloud.at=null;renderTeacher();loadTeacherData()}
   else{toast('الرمز غير صحيح');beep(false);ins.forEach(x=>x.value='');ins[0].focus()}
 }
 async function changePin(){
   const v=toEn($('newPin').value.trim());
   if(!/^\d{4}$/.test(v)){toast('الرمز يجب أن يكون ٤ أرقام');return}
-  DB.settings.pin=v;DB.settings.pinHash=await sha(v);localSave();$('newPin').value='';
+  DB.settings.pinHash=await sha(v);localSave();$('newPin').value='';
   if(await pushSettings())toast('تم تغيير الرمز على كل الأجهزة');
 }
 async function setUnlock(v){DB.settings.unlockAll=v;localSave();if(await pushSettings())toast('تم الحفظ لكل الأجهزة')}
