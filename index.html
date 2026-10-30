@@ -408,7 +408,9 @@ th{font-size:12.5px;color:var(--muted);font-weight:600}
 <script>
 /* ===================== المحتوى ===================== */
 const ROLE_INFO={
-  'فعل':{cls:'act',icon:'fi-rr-running',def:'كلمة تدل على عمل حدث'},
+  'فعل ماضٍ':{cls:'act',icon:'fi-rr-time-past',def:'فعل يدل على عمل حدث وانتهى'},
+  'فعل مضارع':{cls:'act',icon:'fi-rr-time-fast',def:'فعل يدل على عمل يحدث الآن أو سيحدث'},
+  'فعل أمر':{cls:'act',icon:'fi-rr-megaphone',def:'فعل نطلب به القيام بعمل'},
   'فاعل':{cls:'raf',icon:'fi-rr-user',def:'اسم يدل على مَن قام بالفعل'},
   'مفعول به':{cls:'nasb',icon:'fi-rr-bullseye-arrow',def:'اسم يدل على ما وقع عليه الفعل'},
   'حرف جر':{cls:'act',icon:'fi-rr-link-alt',def:'حرف يأتي قبل الاسم فيجعله مجرورًا، مثل: من، إلى، عن، على، في'},
@@ -416,6 +418,8 @@ const ROLE_INFO={
   'مبتدأ':{cls:'raf',icon:'fi-rr-flag-alt',def:'اسم نبدأ به الجملة لنتحدث عنه'},
   'خبر':{cls:'raf',icon:'fi-rr-comment-alt',def:'اسم نُخبر به عن المبتدأ فيكمل المعنى'}
 };
+const isVerb=r=>!!r&&r.startsWith('فعل');
+const VERB_NOTE={'فعل ماضٍ':'مبني على الفتح','فعل مضارع':'مرفوع بالضمة','فعل أمر':'مبني على السكون'};
 const ROLE_AL={'فاعل':'الفاعل','مفعول به':'المفعول به','اسم مجرور':'الاسم المجرور','مبتدأ':'المبتدأ','خبر':'الخبر'};
 const SIGN={
   d:{name:'الضمة',mark:'ـُ',kase:'مرفوع',caseN:'الرفع',his:'رفعه',cls:'raf'},
@@ -424,7 +428,9 @@ const SIGN={
 };
 const ROLE_SIGN={'فاعل':'d','مبتدأ':'d','خبر':'d','مفعول به':'f','اسم مجرور':'k'};
 const ROLE_HINT={
-  'فعل':['هل تدل الكلمة على عمل أو حدث؟','جرّبي أن تقولي: «قد {w}». يصح؟ إذن هي فعل.'],
+  'فعل ماضٍ':['هل حدث العمل وانتهى، أم يحدث الآن؟','جرّبي أن تقولي: «أمسِ {w}». يصح؟ إذن هو فعل ماضٍ.'],
+  'فعل مضارع':['هل يحدث العمل الآن؟ انظري إلى أول حرف فيه.','يبدأ بحرف من أحرف «أنيت»، ويصح أن نقول: «الآن {w}».'],
+  'فعل أمر':['هل نطلب من أحد أن يقوم بعمل؟','«{w}» طلبٌ، كأننا نقول لأحد: افعل هذا.'],
   'فاعل':['اسألي: مَن الذي {verb}؟','الذي {verb} هو «{w}»، فهو مَن قام بالفعل.'],
   'مفعول به':['اسألي: {verb} {subj} ماذا؟','الشيء الذي وقع عليه الفعل هو «{w}».'],
   'حرف جر':['هل هي من حروف الجر: من، إلى، عن، على، في؟','«{w}» من حروف الجر، وبعدها اسم آخره مكسور.'],
@@ -433,7 +439,9 @@ const ROLE_HINT={
   'خبر':['ماذا أخبرتنا الجملة عن «{first}»؟','«{w}» أكمل المعنى وأخبرنا عن «{first}».']
 };
 const ROLE_WHY={
-  'فعل':c=>`«${c.w}» كلمة تدل على عمل حدث في الماضي، فهي فعل ماضٍ مبني على الفتح.`,
+  'فعل ماضٍ':c=>`«${c.w}» يدل على عمل حدث وانتهى، فهو فعل ماضٍ مبني على الفتح.`,
+  'فعل مضارع':c=>`«${c.w}» يدل على عمل يحدث الآن، ويبدأ بحرف من أحرف «أنيت»، فهو فعل مضارع مرفوع وعلامة رفعه الضمة.`,
+  'فعل أمر':c=>`«${c.w}» نطلب به القيام بعمل، فهو فعل أمر مبني على السكون.`,
   'فاعل':c=>`«${c.w}» هو الذي قام بالفعل «${c.verb}»، فهو فاعل. والفاعل مرفوع دائمًا، وعلامة رفعه الضمة.`,
   'مفعول به':c=>`«${c.w}» هو الذي وقع عليه الفعل «${c.verb}»، فهو مفعول به. والمفعول به منصوب دائمًا، وعلامة نصبه الفتحة.`,
   'حرف جر':c=>`«${c.w}» حرف جر، جاء قبل الاسم «${c.next}» فجعله مجرورًا.`,
@@ -442,45 +450,60 @@ const ROLE_WHY={
   'خبر':c=>`«${c.w}» أخبرنا عن «${c.first}» وأكمل المعنى، فهو خبر مرفوع، وعلامة رفعه الضمة.`
 };
 
+const V3=['فعل ماضٍ','فعل مضارع','فعل أمر'];
 const LESSONS=[
- {id:1,title:'الفعل والفاعل',icon:'fi-rr-running',cls:'raf',known:['فعل','فاعل'],
-  rule:'<b>الفعل</b> كلمة تدل على عمل. و<b>الفاعل</b> اسم يدل على مَن قام بهذا العمل، وهو <b style="color:var(--raf)">مرفوع</b> دائمًا وعلامة رفعه <b style="color:var(--raf)">الضمة</b>.',
-  ex:'نامَ الطفلُ',
-  sents:['نامَ:فعل الطفلُ:فاعل','طارَ:فعل العصفورُ:فاعل','حضرَ:فعل الضيفُ:فاعل','نجحَ:فعل الطالبُ:فاعل','سبحَ:فعل السمكُ:فاعل']},
- {id:2,title:'المفعول به',icon:'fi-rr-bullseye-arrow',cls:'nasb',known:['فعل','فاعل','مفعول به'],
-  rule:'<b>المفعول به</b> اسم يدل على ما وقع عليه الفعل، وهو <b style="color:var(--nasb)">منصوب</b> دائمًا وعلامة نصبه <b style="color:var(--nasb)">الفتحة</b>.',
-  ex:'أكلَ الولدُ التفاحةَ',
-  sents:['أكلَ:فعل الولدُ:فاعل التفاحةَ:مفعول به','قرأَ:فعل الطالبُ:فاعل الكتابَ:مفعول به','شربَ:فعل الطفلُ:فاعل الحليبَ:مفعول به','رسمَ:فعل الفنانُ:فاعل اللوحةَ:مفعول به','زرعَ:فعل الفلاحُ:فاعل الشجرةَ:مفعول به']},
- {id:3,title:'حروف الجر والاسم المجرور',icon:'fi-rr-link-alt',cls:'jarr',known:['فعل','فاعل','مفعول به','حرف جر','اسم مجرور'],
-  rule:'من <b>حروف الجر</b>: من، إلى، عن، على، في. والاسم الذي يأتي بعدها يكون <b style="color:var(--jarr)">مجرورًا</b> وعلامة جره <b style="color:var(--jarr)">الكسرة</b>.',
-  ex:'ذهبَ الطالبُ إلى المدرسةِ',
-  sents:['ذهبَ:فعل الطالبُ:فاعل إلى:حرف جر المدرسةِ:اسم مجرور','جلسَ:فعل الجدُّ:فاعل في:حرف جر الحديقةِ:اسم مجرور','نامَ:فعل القطُّ:فاعل على:حرف جر الكرسيِّ:اسم مجرور','خرجَ:فعل الطفلُ:فاعل من:حرف جر البيتِ:اسم مجرور','طارَ:فعل العصفورُ:فاعل إلى:حرف جر العشِّ:اسم مجرور']},
- {id:4,title:'المبتدأ والخبر',icon:'fi-rr-flag-alt',cls:'raf',known:['مبتدأ','خبر','فاعل','مفعول به'],
+ {id:1,key:'mb',title:'المبتدأ والخبر',icon:'fi-rr-flag-alt',cls:'raf',modes:['p','h'],known:['مبتدأ','خبر'],
   rule:'الجملة الاسمية تبدأ باسم يسمى <b>المبتدأ</b>، ويأتي بعده <b>الخبر</b> ليكمل المعنى، وكلاهما <b style="color:var(--raf)">مرفوع</b> وعلامة رفعه <b style="color:var(--raf)">الضمة</b>.',
   ex:'الشمسُ مشرقةٌ',
-  sents:['الشمسُ:مبتدأ مشرقةٌ:خبر','القمرُ:مبتدأ منيرٌ:خبر','الطالبةُ:مبتدأ نشيطةٌ:خبر','الماءُ:مبتدأ باردٌ:خبر','العلمُ:مبتدأ نافعٌ:خبر']},
- {id:5,title:'مراجعة شاملة',icon:'fi-rr-trophy',cls:'act',known:['فعل','فاعل','مفعول به','حرف جر','اسم مجرور','مبتدأ','خبر'],
-  rule:'وقت التحدي! جمل منوّعة على كل ما تعلّمتِه: <b>الفعل والفاعل والمفعول به</b>، و<b>الاسم المجرور</b>، و<b>المبتدأ والخبر</b>.',
+  sents:['الشمسُ:مبتدأ/مشرقةٌ:خبر','القمرُ:مبتدأ/منيرٌ:خبر','الطالبةُ:مبتدأ/نشيطةٌ:خبر','الماءُ:مبتدأ/باردٌ:خبر','العلمُ:مبتدأ/نافعٌ:خبر']},
+ {id:2,key:'fi',title:'أنواع الفعل',icon:'fi-rr-time-past',cls:'act',modes:['p'],noTree:true,known:V3,
+  rule:'الفعل ثلاثة أنواع: <b>الماضي</b> يدل على عمل حدث وانتهى، و<b>المضارع</b> يدل على عمل يحدث الآن ويبدأ بحرف من أحرف «أنيت»، و<b>الأمر</b> نطلب به القيام بعمل.',
+  ex:'كتبَ الطالبُ الدرسَ',exChips:[['كتبَ','فعل ماضٍ'],['يكتبُ','فعل مضارع'],['اكتبْ','فعل أمر']],
+  actTitle:'حدّدي نوع الفعل',actDesc:'اضغطي على الفعل واختاري نوعه',
+  sents:['كتبَ:فعل ماضٍ/الطالبُ/الدرسَ','يقرأُ:فعل مضارع/الطفلُ/القصةَ','اجلسْ:فعل أمر/بهدوءٍ','شربَ:فعل ماضٍ/الولدُ/الماءَ','يرسمُ:فعل مضارع/الفنانُ/لوحةً','احفظْ:فعل أمر/درسَكَ']},
+ {id:3,key:'fa',title:'الفاعل',icon:'fi-rr-user',cls:'raf',modes:['p','h'],known:[...V3,'فاعل','مبتدأ'],
+  rule:'<b>الفاعل</b> اسم يأتي بعد الفعل ويدل على مَن قام به، وهو <b style="color:var(--raf)">مرفوع</b> دائمًا وعلامة رفعه <b style="color:var(--raf)">الضمة</b>.',
+  ex:'نامَ الطفلُ',
+  sents:['نامَ:فعل ماضٍ/الطفلُ:فاعل','طارَ:فعل ماضٍ/العصفورُ:فاعل','حضرَ:فعل ماضٍ/الضيفُ:فاعل','نجحَ:فعل ماضٍ/الطالبُ:فاعل','يسبحُ:فعل مضارع/السمكُ:فاعل']},
+ {id:4,key:'mf',title:'المفعول به',icon:'fi-rr-bullseye-arrow',cls:'nasb',modes:['p','h'],known:[...V3,'فاعل','مفعول به'],
+  rule:'<b>المفعول به</b> اسم يدل على ما وقع عليه الفعل، وهو <b style="color:var(--nasb)">منصوب</b> دائمًا وعلامة نصبه <b style="color:var(--nasb)">الفتحة</b>.',
+  ex:'أكلَ الولدُ التفاحةَ',
+  sents:['أكلَ:فعل ماضٍ/الولدُ:فاعل/التفاحةَ:مفعول به','قرأَ:فعل ماضٍ/الطالبُ:فاعل/الكتابَ:مفعول به','يشربُ:فعل مضارع/الطفلُ:فاعل/الحليبَ:مفعول به','رسمَ:فعل ماضٍ/الفنانُ:فاعل/اللوحةَ:مفعول به','زرعَ:فعل ماضٍ/الفلاحُ:فاعل/الشجرةَ:مفعول به']},
+ {id:5,key:'jr',title:'حروف الجر والاسم المجرور',icon:'fi-rr-link-alt',cls:'jarr',modes:['p','h'],known:[...V3,'فاعل','مفعول به','حرف جر','اسم مجرور'],
+  rule:'من <b>حروف الجر</b>: من، إلى، عن، على، في. والاسم الذي يأتي بعدها يكون <b style="color:var(--jarr)">مجرورًا</b> وعلامة جره <b style="color:var(--jarr)">الكسرة</b>.',
+  ex:'ذهبَ الطالبُ إلى المدرسةِ',
+  sents:['ذهبَ:فعل ماضٍ/الطالبُ:فاعل/إلى:حرف جر/المدرسةِ:اسم مجرور','يجلسُ:فعل مضارع/الجدُّ:فاعل/في:حرف جر/الحديقةِ:اسم مجرور','نامَ:فعل ماضٍ/القطُّ:فاعل/على:حرف جر/الكرسيِّ:اسم مجرور','خرجَ:فعل ماضٍ/الطفلُ:فاعل/من:حرف جر/البيتِ:اسم مجرور','طارَ:فعل ماضٍ/العصفورُ:فاعل/إلى:حرف جر/العشِّ:اسم مجرور']},
+ {id:6,key:'rv',title:'مراجعة شاملة',icon:'fi-rr-trophy',cls:'act',modes:['p','h'],known:[...V3,'فاعل','مفعول به','حرف جر','اسم مجرور','مبتدأ','خبر'],
+  rule:'وقت التحدي! جمل منوّعة على كل ما تعلّمتِه: <b>المبتدأ والخبر</b>، و<b>أنواع الفعل</b>، و<b>الفاعل والمفعول به</b>، و<b>الاسم المجرور</b>.',
   ex:'كتبَ الطالبُ الدرسَ',
-  sents:['كتبَ:فعل الطالبُ:فاعل الدرسَ:مفعول به','لعبَ:فعل الأطفالُ:فاعل في:حرف جر الملعبِ:اسم مجرور','السماءُ:مبتدأ صافيةٌ:خبر','قطفَ:فعل الفلاحُ:فاعل الثمرَ:مفعول به','البحرُ:مبتدأ واسعٌ:خبر']}
+  sents:['كتبَ:فعل ماضٍ/الطالبُ:فاعل/الدرسَ:مفعول به','السماءُ:مبتدأ/صافيةٌ:خبر','يلعبُ:فعل مضارع/الأطفالُ:فاعل/في:حرف جر/الملعبِ:اسم مجرور','قطفَ:فعل ماضٍ/الفلاحُ:فاعل/الثمرَ:مفعول به','البحرُ:مبتدأ/واسعٌ:خبر']}
 ];
 const MARKS={'ُ':'d','ٌ':'d','َ':'f','ً':'f','ِ':'k','ٍ':'k'};
 const lastSign=w=>{const m=w.match(/[ً-ِ]$/);return m?MARKS[m[0]]:null};
 const bare=w=>w.replace(/[ً-ِ]$/,'');
-LESSONS.forEach(L=>{L.items=L.sents.map((s,i)=>({id:`${L.id}-${i}`,words:s.split(/ (?=[^ ]+:)/).map(p=>{const [w,r]=p.split(':');return {w,r,s:ROLE_SIGN[r]?lastSign(w):null}})}))});
+LESSONS.forEach(L=>{L.items=L.sents.map((s,i)=>({id:`${L.key}-${i}`,words:s.split('/').map(p=>{const [w,r]=p.split(':');return {w,r:r||null,s:r&&ROLE_SIGN[r]?lastSign(w):null}})}))});
 const textOf=s=>s.words.map(x=>x.w).join(' ');
 
 const BADGES=[
- {id:'first',t:'الخطوة الأولى',d:'أعربي أول جملة',ic:'fi-rr-flag-alt'},
+ {id:'first',t:'الخطوة الأولى',d:'أنجزي أول جملة',ic:'fi-rr-flag-alt'},
  {id:'perfect',t:'بلا أخطاء',d:'جملة كاملة بثلاث نجوم',ic:'fi-rr-bullseye-arrow'},
- {id:'l1',t:'صديقة الفاعل',d:'أنهي درس الفعل والفاعل',ic:'fi-rr-running'},
- {id:'l2',t:'صائدة المفعول به',d:'أنهي درس المفعول به',ic:'fi-rr-bullseye-arrow'},
- {id:'l3',t:'خبيرة حروف الجر',d:'أنهي درس الاسم المجرور',ic:'fi-rr-link-alt'},
- {id:'l4',t:'سيدة الجملة الاسمية',d:'أنهي درس المبتدأ والخبر',ic:'fi-rr-flag-alt'},
- {id:'l5',t:'بطلة المراجعة',d:'أنهي المراجعة الشاملة',ic:'fi-rr-crown'},
+ {id:'l_mb',t:'سيدة الجملة الاسمية',d:'أنهي درس المبتدأ والخبر',ic:'fi-rr-flag-alt'},
+ {id:'l_fi',t:'خبيرة الأفعال',d:'أنهي درس أنواع الفعل',ic:'fi-rr-time-past'},
+ {id:'l_fa',t:'صديقة الفاعل',d:'أنهي درس الفاعل',ic:'fi-rr-user'},
+ {id:'l_mf',t:'صائدة المفعول به',d:'أنهي درس المفعول به',ic:'fi-rr-bullseye-arrow'},
+ {id:'l_jr',t:'خبيرة حروف الجر',d:'أنهي درس الاسم المجرور',ic:'fi-rr-link-alt'},
+ {id:'l_rv',t:'بطلة المراجعة',d:'أنهي المراجعة الشاملة',ic:'fi-rr-crown'},
  {id:'haraka',t:'ضابطة الحركات',d:'أنهي «ضعي الحركة» في درس كامل',ic:'fi-rr-pen-clip'},
  {id:'s50',t:'جامعة النجوم',d:'اجمعي ٥٠ نجمة',ic:'fi-rr-star'}
 ];
+// نقل تقدم الطالبات من ترتيب الدروس القديم
+function migrate(s){
+  if(!s||!s.prog)return s;
+  const map={'1':'fa','2':'mf','3':'jr','4':'mb','5':'rv'};
+  Object.entries(map).forEach(([o,n])=>['p','h'].forEach(m=>{if(s.prog[o+m]){if(!s.prog[n+m]||!s.prog[n+m].length)s.prog[n+m]=s.prog[o+m];delete s.prog[o+m]}}));
+  if(s.badges)s.badges=[...new Set(s.badges.map(b=>/^l\d$/.test(b)?'l_'+map[b[1]]:b))];
+  return s;
+}
 
 /* ===================== التخزين ===================== */
 const KEY='arribha4_v1';
@@ -488,6 +511,7 @@ let DB=null;
 try{DB=JSON.parse(localStorage.getItem(KEY))}catch(e){}
 if(!DB||!DB.students)DB={students:{},current:null,settings:{unlockAll:false,sound:true}};
 DB.dirty=DB.dirty||[];
+Object.values(DB.students).forEach(migrate);
 delete DB.settings.pin;
 const PIN0='d17a83e5e1761d317bd28f37bf26f30fade3b82a365e51b32cf0eb90b3c8dc01';
 function localSave(){try{localStorage.setItem(KEY,JSON.stringify(DB))}catch(e){}}
@@ -508,7 +532,7 @@ async function sb(q,opt={}){
   if(!r.ok)throw new Error(r.status+' '+(await r.text()));
   cloud.ok=true;const t=await r.text();return t?JSON.parse(t):null;
 }
-function normStudent(s){s.prog=s.prog||{};s.errors=s.errors||{};s.badges=s.badges||[];s.tries=s.tries||0;s.right=s.right||0;s.last=s.last||Date.now();return s}
+function normStudent(s){migrate(s);s.prog=s.prog||{};s.errors=s.errors||{};s.badges=s.badges||[];s.tries=s.tries||0;s.right=s.right||0;s.last=s.last||Date.now();return s}
 let pushT=null,pushing=false;
 function queuePush(){clearTimeout(pushT);pushT=setTimeout(pushNow,700)}
 async function pushNow(){
@@ -539,7 +563,7 @@ window.addEventListener('online',pushNow);
 setInterval(()=>{if(DB.dirty.length)pushNow()},20000);
 const me=()=>DB.current&&DB.students[DB.current]?DB.students[DB.current]:null;
 const newStudent=(name,cls)=>({name,cls,prog:{},badges:[],errors:{},tries:0,right:0,created:Date.now(),last:Date.now()});
-const progOf=(s,lid,mode)=>(s.prog[lid+mode]=s.prog[lid+mode]||[]);
+const progOf=(s,lid,mode)=>{const k=LESSONS[lid-1].key+mode;return s.prog[k]=s.prog[k]||[]};
 const starsOf=s=>Object.values(s.prog).reduce((a,arr)=>a+arr.reduce((b,v)=>b+(v||0),0),0);
 const lessonDone=(s,L)=>L.items.every((_,i)=>progOf(s,L.id,'p')[i]);
 const lessonOpen=(s,i)=>i===0||DB.settings.unlockAll||lessonDone(s,LESSONS[i-1]);
@@ -568,15 +592,15 @@ function confetti(){
   document.body.appendChild(c);setTimeout(()=>c.remove(),2600);
 }
 function ctx(sent,i){
-  const ws=sent.words,v=ws.find(x=>x.r==='فعل'),sb=ws.find(x=>x.r==='فاعل');
+  const ws=sent.words,v=ws.find(x=>isVerb(x.r)),sb=ws.find(x=>x.r==='فاعل');
   return {w:ws[i].w,verb:v?v.w:'',subj:sb?sb.w:'',first:ws[0].w,prev:i>0?ws[i-1].w:'',next:ws[i+1]?ws[i+1].w:''};
 }
 function fullParse(x){
-  if(x.r==='فعل')return 'فعل ماضٍ مبني على الفتح';
+  if(isVerb(x.r))return x.r==='فعل مضارع'?'فعل مضارع مرفوع وعلامة رفعه الضمة':x.r+' '+VERB_NOTE[x.r];
   if(x.r==='حرف جر')return 'حرف جر';
   const S=SIGN[x.s];return `${x.r} ${S.kase} وعلامة ${S.his} ${S.name} الظاهرة على آخره`;
 }
-const kindOf=s=>s.words[0].r==='فعل'?'جملة فعلية':'جملة اسمية';
+const kindOf=s=>isVerb(s.words[0].r)?'جملة فعلية':'جملة اسمية';
 
 /* ===================== التنقل ===================== */
 const TABS=[['home','الرئيسية','fi-rr-home'],['lessons','الدروس','fi-rr-book-alt'],['me','إنجازاتي','fi-rr-medal'],['teacher','المعلمة','fi-rr-chalkboard-user']];
@@ -625,7 +649,7 @@ function renderLessons(){
   const s=me();
   $('lessonsList').innerHTML=LESSONS.map((L,i)=>{
     const open=lessonOpen(s,i),p=progOf(s,L.id,'p'),h=progOf(s,L.id,'h');
-    const got=[...p,...h].reduce((a,v)=>a+(v||0),0),max=L.items.length*6;
+    const got=[...p,...h].reduce((a,v)=>a+(v||0),0),max=L.items.length*3*L.modes.length;
     return `<button class="lesson ${open?'':'locked'}" onclick="openLesson(${L.id})">
       ${!open?'<i class="fi fi-rr-lock lock"></i>':lessonDone(s,L)?'<i class="fi fi-sr-badge-check donebadge"></i>':''}
       <span class="ic ${L.cls}"><i class="fi ${L.icon}"></i></span>
@@ -642,12 +666,12 @@ function openLesson(id){
   const ex=L.items.find(x=>textOf(x)===L.ex)||L.items[0];
   $('ruleBox').innerHTML=`<div style="display:flex;align-items:center;gap:12px"><span class="lesson" style="padding:0;border:0;box-shadow:none;background:none"><span class="ic ${L.cls}"><i class="fi ${L.icon}"></i></span></span><div><div class="muted" style="font-size:13px">الدرس ${ar(L.id)}</div><h2 style="font-size:24px">${L.title}</h2></div></div>
     <p>${L.rule}</p>
-    <div class="example">${ex.words.map(x=>{const c=x.s?SIGN[x.s].cls:'act';return `<div class="ex-w"><span class="w ${c}">${x.w}</span><small>${x.r}</small></div>`}).join('')}</div>`;
+    <div class="example">${L.exChips?L.exChips.map(([w,r])=>`<div class="ex-w"><span class="w act">${w}</span><small>${r}</small></div>`).join(''):ex.words.map(x=>{const c=x.s?SIGN[x.s].cls:'act';return `<div class="ex-w"><span class="w ${c}">${x.w}</span><small>${x.r}</small></div>`}).join('')}</div>`;
   const p=progOf(s,L.id,'p'),h=progOf(s,L.id,'h'),n=L.items.length;
   const cnt=a=>a.filter(Boolean).length,sum=a=>a.reduce((x,v)=>x+(v||0),0);
   $('actsBox').innerHTML=`
-    <button class="actcard" onclick="startAct(${L.id},'p')"><span class="ic act"><i class="fi fi-rr-cursor-finger"></i></span><div><h3>أعربي الجمل</h3><p>اضغطي كل كلمة واختاري موقعها وعلامتها</p><div style="margin-top:4px">${starsHTML(Math.round(sum(p)/n))} <span class="muted" style="font-size:13px">${ar(cnt(p))} من ${ar(n)} جمل</span></div></div></button>
-    <button class="actcard" onclick="startAct(${L.id},'h')"><span class="ic nasb"><i class="fi fi-rr-pen-clip"></i></span><div><h3>ضعي الحركة</h3><p>اختاري الحركة الصحيحة على آخر الكلمة</p><div style="margin-top:4px">${starsHTML(Math.round(sum(h)/n))} <span class="muted" style="font-size:13px">${ar(cnt(h))} من ${ar(n)} جمل</span></div></div></button>`;
+    <button class="actcard" onclick="startAct(${L.id},'p')"><span class="ic act"><i class="fi fi-rr-cursor-finger"></i></span><div><h3>${L.actTitle||'أعربي الجمل'}</h3><p>${L.actDesc||'اضغطي كل كلمة واختاري موقعها وعلامتها'}</p><div style="margin-top:4px">${starsHTML(Math.round(sum(p)/n))} <span class="muted" style="font-size:13px">${ar(cnt(p))} من ${ar(n)} جمل</span></div></div></button>
+    ${L.modes.includes('h')?`<button class="actcard" onclick="startAct(${L.id},'h')"><span class="ic nasb"><i class="fi fi-rr-pen-clip"></i></span><div><h3>ضعي الحركة</h3><p>اختاري الحركة الصحيحة على آخر الكلمة</p><div style="margin-top:4px">${starsHTML(Math.round(sum(h)/n))} <span class="muted" style="font-size:13px">${ar(cnt(h))} من ${ar(n)} جمل</span></div></div></button>`:''}`;
 }
 
 /* ===================== اللعب ===================== */
@@ -656,21 +680,21 @@ function startAct(lid,mode,i){
   const L=LESSONS[lid-1],p=progOf(me(),lid,mode);
   if(i==null){i=L.items.findIndex((_,k)=>!p[k]);if(i<0)i=0}
   G={L,mode,i,sent:L.items[i],mist:0,active:null};
-  G.ws=G.sent.words.map(()=>({step:0,hint:0,bad:[],reveal:false,fb:null,done:false,opts:null}));
+  G.ws=G.sent.words.map(x=>({step:0,hint:0,bad:[],reveal:false,fb:null,done:!x.r,plain:!x.r,opts:null}));
   if(mode==='h'){G.targets=G.sent.words.map((x,k)=>x.s?k:-1).filter(k=>k>=0);G.t=0}
   show('play');renderPlay();
 }
 function renderPlay(){
   const L=G.L,p=progOf(me(),L.id,G.mode);
   $('playLesson').textContent=`الدرس ${ar(L.id)}: ${L.title}`;
-  $('playMode').textContent=G.mode==='p'?'أعربي الجملة':'ضعي الحركة المناسبة';
+  $('playMode').textContent=G.mode==='p'?(L.actTitle||'أعربي الجملة'):'ضعي الحركة المناسبة';
   $('dots').innerHTML=L.items.map((_,k)=>`<button class="${k===G.i?'cur':p[k]?'done':''}" onclick="startAct(${L.id},'${G.mode}',${k})">${ar(k+1)}</button>`).join('');
-  $('treebox').style.display=G.mode==='p'?'':'none';
+  $('treebox').style.display=G.mode==='p'&&!L.noTree?'':'none';
   if(G.mode==='p'){
     $('qTop').textContent='';
-    $('sentence').innerHTML=G.sent.words.map((x,i)=>{const S=G.ws[i];const c=S.done?'done '+(x.s?SIGN[x.s].cls:'act'):(G.active===i?'active':'');
+    $('sentence').innerHTML=G.sent.words.map((x,i)=>{const S=G.ws[i];if(S.plain)return `<span class="word plain">${x.w}</span>`;const c=S.done?'done '+(x.s?SIGN[x.s].cls:'act'):(G.active===i?'active':'');
       return `<button class="word ${c}" onclick="pick(${i})">${x.w}${S.done?'<span class="ck"><i class="fi fi-rr-check"></i></span>':''}</button>`}).join('');
-    $('tapHint').innerHTML=G.active===null?'<i class="fi fi-rr-cursor-finger"></i> اضغطي على أي كلمة لتبدئي':'';
+    $('tapHint').innerHTML=G.active===null?`<i class="fi fi-rr-cursor-finger"></i> ${L.noTree?'اضغطي على الفعل لتبدئي':'اضغطي على أي كلمة لتبدئي'}`:'';
     renderParsePanel();renderTree();
   }else{
     const cur=G.targets[G.t];
@@ -694,7 +718,7 @@ function pick(i){
   renderPlay();setTimeout(()=>$('panel').scrollIntoView({behavior:'smooth',block:'nearest'}),60);
 }
 function roleOpts(x){
-  const inSent=G.sent.words.map(w=>w.r).filter(r=>r!==x.r);
+  const inSent=G.sent.words.map(w=>w.r).filter(r=>r&&r!==x.r);
   let pool=[...new Set([...shuffle(inSent),...shuffle(G.L.known)])].filter(r=>r!==x.r);
   if(pool.length<2)pool=pool.concat(Object.keys(ROLE_INFO).filter(r=>r!==x.r&&!pool.includes(r)));
   return shuffle([x.r,...pool.slice(0,3)]);
@@ -786,18 +810,18 @@ function finishSentence(){
   const gained=starsOf(s)-before;
   const nextI=G.L.items.findIndex((_,k)=>k>G.i&&!p[k]);
   const allDone=G.L.items.every((_,k)=>p[k]);
-  const nextLesson=LESSONS[G.L.id]&&G.mode==='p'&&allDone&&lessonOpen(s,G.L.id)?LESSONS[G.L.id]:null;
+  const nextLesson=LESSONS[G.L.id]&&lessonDone(s,G.L)&&lessonOpen(s,G.L.id)?LESSONS[G.L.id]:null;
   const praise=stars===3?'ممتاز! إعراب بلا أخطاء':stars===2?'أحسنتِ! أداء رائع':'أحسنتِ! تتحسّنين كل مرة';
   $('modalBox').innerHTML=`
     <h3>${allDone&&nextI<0?'أنهيتِ النشاط كاملًا! 🎉':praise}</h3>
     <div class="bigstars">${[0,1,2].map(k=>`<i class="fi fi-sr-star ${k<stars?'on':''}"></i>`).join('')}</div>
     ${gained>0?`<div style="text-align:center;font-weight:700;color:var(--nasb)">+${ar(gained)} نجوم</div>`:''}
-    <div class="parse-list">${G.sent.words.map(x=>`<div><b>${x.w}</b>${fullParse(x)}.</div>`).join('')}</div>
+    <div class="parse-list">${G.sent.words.filter(x=>x.r).map(x=>`<div><b>${x.w}</b>${fullParse(x)}.</div>`).join('')}</div>
     ${nb.length?`<div class="newbadges">${nb.map(b=>`<span class="case nasb"><i class="fi ${b.ic}"></i> شارة جديدة: ${b.t}</span>`).join('')}</div>`:''}
     <div class="row-btns">
       ${nextI>=0?`<button class="btn" onclick="closeModal();startAct(${G.L.id},'${G.mode}',${nextI})">الجملة التالية <i class="fi fi-rr-arrow-left"></i></button>`:''}
-      ${nextI<0&&G.mode==='p'?`<button class="btn" onclick="closeModal();startAct(${G.L.id},'h')">ضعي الحركة <i class="fi fi-rr-pen-clip"></i></button>`:''}
-      ${nextI<0&&G.mode==='h'&&nextLesson?`<button class="btn" onclick="closeModal();openLesson(${nextLesson.id})">الدرس التالي <i class="fi fi-rr-arrow-left"></i></button>`:''}
+      ${nextI<0&&G.mode==='p'&&G.L.modes.includes('h')?`<button class="btn" onclick="closeModal();startAct(${G.L.id},'h')">ضعي الحركة <i class="fi fi-rr-pen-clip"></i></button>`:''}
+      ${nextI<0&&(G.mode==='h'||!G.L.modes.includes('h'))&&nextLesson?`<button class="btn" onclick="closeModal();openLesson(${nextLesson.id})">الدرس التالي <i class="fi fi-rr-arrow-left"></i></button>`:''}
       <button class="btn ghost" onclick="closeModal();openLesson(${G.L.id})">صفحة الدرس</button>
     </div>`;
   $('modal').classList.add('on');
@@ -810,7 +834,7 @@ function renderTree(){
   const ws=G.sent.words,items=[];
   for(let i=0;i<ws.length;i++){if(ws[i].r==='حرف جر'&&ws[i+1]){items.push({g:'جار ومجرور',idx:[i,i+1]});i++}else items.push({idx:[i]})}
   const node=i=>{const x=ws[i],S=G.ws[i],c=x.s?SIGN[x.s].cls:'act';
-    return S.done?`<div class="tnode ${c}"><div class="tw">${x.w}</div><div class="tr">${x.r==='فعل'?'فعل ماضٍ':x.r}</div><div class="ts">${x.s?`${SIGN[x.s].kase} بـ${SIGN[x.s].name}`:'مبني'}</div></div>`
+    return S.done?`<div class="tnode ${c}"><div class="tw">${x.w}</div><div class="tr">${x.r}</div><div class="ts">${x.s?`${SIGN[x.s].kase} بـ${SIGN[x.s].name}`:VERB_NOTE[x.r]||'مبني'}</div></div>`
       :`<div class="tnode pending"><div class="tw">${x.w}</div><div class="tr">؟</div></div>`};
   const li=it=>it.g?`<li><div class="tnode grp">${it.g}</div><ul>${it.idx.map(i=>`<li>${node(i)}</li>`).join('')}</ul></li>`:`<li>${node(it.idx[0])}</li>`;
   $('tree').innerHTML=`<ul><li><div class="tnode root">${kindOf(G.sent)}</div><ul>${items.map(li).join('')}</ul></li></ul>`;
@@ -823,7 +847,7 @@ function checkBadges(){
   const all=Object.values(s.prog).flat();
   if(all.some(Boolean))add('first');
   if(all.some(v=>v===3))add('perfect');
-  LESSONS.forEach(L=>{if(lessonDone(s,L))add('l'+L.id);if(L.items.every((_,i)=>progOf(s,L.id,'h')[i]))add('haraka')});
+  LESSONS.forEach(L=>{if(lessonDone(s,L))add('l_'+L.key);if(L.modes.includes('h')&&L.items.every((_,i)=>progOf(s,L.id,'h')[i]))add('haraka')});
   if(starsOf(s)>=50)add('s50');
   return got;
 }
@@ -835,7 +859,7 @@ function renderMe(){
   const stat=(v,l,ic)=>`<div class="stat"><div class="l"><i class="fi ${ic}"></i> ${l}</div><div class="v">${v}</div></div>`;
   $('meStats').innerHTML=stat(ar(starsOf(s)),'نجومي','fi-rr-star')+stat(ar(solved),'جمل أنجزتها','fi-rr-document-signed')+stat(ar(s.badges.length)+' / '+ar(BADGES.length),'شاراتي','fi-rr-medal')+stat(s.tries?ar(Math.round(s.right/s.tries*100))+'٪':'—','إجابات صحيحة من أول مرة','fi-rr-bullseye-arrow');
   $('meBadges').innerHTML=BADGES.map(b=>`<div class="badge ${s.badges.includes(b.id)?'got':''}"><div class="ic"><i class="fi ${b.ic}"></i></div><b>${b.t}</b><small>${b.d}</small></div>`).join('');
-  $('meLessons').innerHTML=LESSONS.map(L=>{const g=[...progOf(s,L.id,'p'),...progOf(s,L.id,'h')].reduce((a,v)=>a+(v||0),0),m=L.items.length*6;return hbar(L.title,g/m,ar(g)+'/'+ar(m),'var(--gold)')}).join('');
+  $('meLessons').innerHTML=LESSONS.map(L=>{const g=[...progOf(s,L.id,'p'),...progOf(s,L.id,'h')].reduce((a,v)=>a+(v||0),0),m=L.items.length*3*L.modes.length;return hbar(L.title,g/m,ar(g)+'/'+ar(m),'var(--gold)')}).join('');
 }
 const hbar=(l,f,v,c)=>`<div class="hbar"><span class="lb" title="${esc(l)}">${esc(l)}</span><div class="t"><i style="width:${Math.max(3,Math.min(1,f)*100)}%;background:${c}"></i></div><span class="v">${v}</span></div>`;
 
@@ -910,7 +934,7 @@ function renderTeacher(){
         <td>${fmtDate(s.last)}</td>
         <td><button class="iconbtn" style="width:32px;height:32px" onclick="delStudent('${encodeURIComponent(sid(s))}')" aria-label="حذف"><i class="fi fi-rr-trash"></i></button></td></tr>`}).join(''):`<tr><td colspan="${LESSONS.length+7}" class="empty">لا توجد طالبات بعد</td></tr>`}
       </tbody></table></div>
-      <p class="muted" style="font-size:12.5px;margin-bottom:0">د١ إلى د٥ = نجوم كل درس من ٣٠ (أعربي الجمل + ضعي الحركة).</p></div>
+      <p class="muted" style="font-size:12.5px;margin-bottom:0">${LESSONS.map(L=>`د${ar(L.id)}: ${L.title}`).join(' • ')} — الأرقام مجموع نجوم كل درس.</p></div>
     <div class="card" style="margin-top:14px"><h3 style="font-size:16px;margin-bottom:12px"><i class="fi fi-rr-settings"></i> الإعدادات</h3>
       <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
         <div class="field"><label>فتح الدروس</label><select onchange="setUnlock(this.value==='1')"><option value="0" ${!DB.settings.unlockAll?'selected':''}>بالتدرج (بعد إنهاء السابق)</option><option value="1" ${DB.settings.unlockAll?'selected':''}>فتح جميع الدروس</option></select></div>
