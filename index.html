@@ -1,0 +1,962 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>عرّبها · رابع ابتدائي</title>
+<meta name="description" content="دروس نحو تفاعلية للصف الرابع الابتدائي: الفعل والفاعل والمفعول به، والاسم المجرور، والمبتدأ والخبر">
+<meta name="theme-color" content="#FAF6EF">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="عرّبها">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
+<link rel="icon" type="image/png" sizes="192x192" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&family=Reem+Kufi:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@flaticon/flaticon-uicons@3.3.1/css/regular/rounded.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@flaticon/flaticon-uicons@3.3.1/css/solid/rounded.css">
+<style>
+:root{
+  --bg:#FAF6EF;--card:#FFFFFF;--ink:#1F2A44;--ink2:#2F3B5C;--muted:#77737E;--line:#E9E2D6;--soft:#F3EEE5;
+  --raf:#4767D6;--raf-s:#EAEFFF;--nasb:#D9822F;--nasb-s:#FDF0E1;--jarr:#D2547A;--jarr-s:#FCE8EE;--act:#2A9580;--act-s:#E1F3EE;
+  --ok:#2A9580;--bad:#D2547A;--gold:#F2A65A;
+  --r:20px;--shadow:0 1px 2px rgba(31,42,68,.05),0 6px 24px rgba(31,42,68,.06);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans Arabic",system-ui,sans-serif;font-size:17px;line-height:1.7;padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+input,select{font:inherit;color:inherit}
+.fi{display:inline-flex;line-height:1;vertical-align:-0.12em}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px}
+.naskh{font-family:"Noto Naskh Arabic",serif}
+
+/* Header */
+header.top{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:10px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-family:"Reem Kufi",sans-serif;font-size:23px;font-weight:700;color:var(--ink);text-decoration:none}
+.brand svg{width:38px;height:38px;border-radius:11px;flex:none}
+.brand small{font-family:"IBM Plex Sans Arabic";font-size:12px;font-weight:600;color:var(--muted);background:var(--soft);padding:2px 8px;border-radius:99px}
+.spacer{flex:1}
+.chip{display:inline-flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--line);padding:6px 12px;border-radius:99px;font-weight:600;font-size:14px}
+.chip .fi-sr-star{color:var(--gold)}
+.iconbtn{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:var(--muted)}
+.iconbtn:hover{background:var(--soft)}
+.who{display:inline-flex;align-items:center;gap:6px;font-size:14px;color:var(--muted);padding:6px 10px;border-radius:99px;max-width:130px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.who:hover{background:var(--soft)}
+
+/* Nav */
+nav.tabs{position:fixed;inset:auto 0 0 0;z-index:30;background:var(--card);border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
+nav.tabs button{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:12px;color:var(--muted);padding:6px 8px;border-radius:12px;min-width:64px}
+nav.tabs button .fi{font-size:21px}
+nav.tabs button.on{color:var(--ink);font-weight:600}
+nav.tabs button.on .fi{color:var(--jarr)}
+@media(min-width:820px){
+  body{padding-bottom:40px}
+  header.top{background:rgba(250,246,239,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+  nav.tabs{position:static;border:0;background:none;padding:0;gap:2px}
+  nav.tabs button{flex-direction:row;font-size:14px;gap:6px;padding:8px 12px;min-width:0}
+  nav.tabs button .fi{font-size:16px}
+  nav.tabs button.on{background:var(--card);box-shadow:var(--shadow)}
+}
+@media(max-width:420px){.brand small{display:none}.who span{display:none}}
+
+/* Generic */
+section.view{display:none;padding:22px 0 30px;animation:fade .3s ease}
+section.view.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;box-shadow:var(--shadow)}
+h1,h2,h3{margin:0;line-height:1.35}
+h2.sec{font-size:22px;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+h2.sec .fi{color:var(--jarr);font-size:20px}
+p.lead{margin:0 0 18px;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:16px;font-weight:600;background:var(--ink);color:#fff;transition:transform .15s,opacity .15s}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+.btn.soft{background:var(--soft);color:var(--ink)}
+.btn.sm{padding:8px 14px;font-size:14px;border-radius:12px}
+.btn.danger{color:var(--bad)}
+.btn[disabled]{opacity:.45;pointer-events:none}
+.grid{display:grid;gap:14px}
+.muted{color:var(--muted)}
+.tag{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:600;padding:3px 10px;border-radius:99px;background:var(--soft);color:var(--ink2)}
+
+/* Hero */
+.hero{display:grid;gap:22px;align-items:center;padding:8px 0}
+.hero .mark{width:92px;height:92px;border-radius:26px;box-shadow:0 12px 30px rgba(31,42,68,.18)}
+.hero h1{font-family:"Reem Kufi",sans-serif;font-size:50px;font-weight:700}
+.hero .slogan{font-size:20px;font-weight:600;color:var(--ink2);margin:4px 0 10px}
+.hero .slogan b{color:var(--jarr)}
+.hero p{margin:0 0 20px;color:var(--muted);max-width:540px}
+.ctas{display:flex;gap:10px;flex-wrap:wrap}
+@media(min-width:820px){.hero{grid-template-columns:1.05fr .95fr}}
+
+/* Signs */
+.signs3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.s3{border-radius:20px;padding:14px 8px;text-align:center}
+.s3 .mk{font-family:"Noto Naskh Arabic",serif;font-size:44px;font-weight:700;line-height:1.3;display:block}
+.s3 b{display:block;font-size:17px}
+.s3 small{display:block;font-weight:600;font-size:13px}
+.s3 em{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5}
+.raf{background:var(--raf-s);color:var(--raf)}
+.nasb{background:var(--nasb-s);color:var(--nasb)}
+.jarr{background:var(--jarr-s);color:var(--jarr)}
+.act{background:var(--act-s);color:var(--act)}
+.steps4{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-top:10px}
+.step4{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.step4 .n{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;background:var(--soft);font-size:18px;margin-bottom:8px}
+.step4 h3{font-size:16px;margin-bottom:2px}
+.step4 p{margin:0;font-size:14px;color:var(--muted)}
+
+/* Login */
+.login{max-width:440px;margin:16px auto}
+.field{display:grid;gap:6px;margin-bottom:12px}
+.field label{font-size:14px;font-weight:600}
+.field input,.field select{padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:#fff;outline:none;width:100%}
+.field input:focus,.field select:focus{border-color:var(--ink)}
+.names{display:flex;gap:6px;flex-wrap:wrap}
+
+/* Lessons */
+.lessons{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+.lesson{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow);text-align:right;display:flex;flex-direction:column;gap:6px;transition:transform .15s}
+.lesson:hover{transform:translateY(-2px)}
+.lesson .ic{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;font-size:22px}
+.lesson .num{font-family:"Reem Kufi",sans-serif;font-size:13px;color:var(--muted)}
+.lesson h3{font-size:19px}
+.lesson .ex{font-family:"Noto Naskh Arabic",serif;font-size:18px;font-weight:700;color:var(--ink2)}
+.lesson .lstars{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);margin-top:4px}
+.bar{height:8px;border-radius:9px;background:var(--soft);overflow:hidden;flex:1}
+.bar i{display:block;height:100%;background:var(--act);border-radius:9px;transition:width .5s}
+.lesson.locked{opacity:.55;pointer-events:none}
+.lesson .lock{position:absolute;top:18px;left:18px;color:var(--muted);font-size:18px}
+.lesson .donebadge{position:absolute;top:16px;left:16px;color:var(--act);font-size:22px}
+
+/* Lesson page */
+.rule{display:grid;gap:12px}
+.rule p{margin:0;font-size:18px}
+.example{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;padding:6px 0}
+.ex-w{display:flex;flex-direction:column;align-items:center;gap:4px}
+.ex-w .w{font-family:"Noto Naskh Arabic",serif;font-size:30px;font-weight:700;padding:2px 16px 6px;border-radius:16px}
+.ex-w small{font-size:13px;font-weight:600;color:var(--muted)}
+.acts{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:14px}
+.actcard{display:flex;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow);text-align:right;transition:transform .15s}
+.actcard:hover{transform:translateY(-2px)}
+.actcard .ic{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;font-size:24px;flex:none}
+.actcard h3{font-size:18px}
+.actcard p{margin:0;font-size:14px;color:var(--muted)}
+.stars{display:inline-flex;gap:2px;color:#E4DCCD;font-size:14px}
+.stars .on{color:var(--gold)}
+
+/* Play */
+.playhead{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.playhead h2{font-size:19px}
+.dots{display:flex;gap:6px}
+.dots button{width:30px;height:30px;border-radius:50%;background:var(--card);border:1.5px solid var(--line);font-size:13px;font-weight:700;color:var(--muted)}
+.dots button.done{background:var(--act-s);border-color:transparent;color:var(--act)}
+.dots button.cur{background:var(--ink);border-color:var(--ink);color:#fff}
+.qtop{text-align:center;font-weight:600;color:var(--ink2)}
+.sentence{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;padding:22px 6px 18px}
+.word{font-family:"Noto Naskh Arabic",serif;font-size:36px;font-weight:700;padding:6px 18px 10px;border-radius:18px;border:2.5px dashed #D6CDBE;background:#fff;transition:all .2s;position:relative;line-height:1.6}
+button.word:hover{border-color:var(--ink)}
+.word.active{border-style:solid;border-color:var(--ink);box-shadow:0 6px 18px rgba(31,42,68,.12);transform:translateY(-2px)}
+.word.done{border-style:solid;border-color:transparent}
+.word.plain{border-color:transparent;background:transparent;padding-inline:4px}
+.word.future{color:#B9B2A6}
+.word .slot{display:inline-block;width:30px;height:30px;border-radius:50%;border:2.5px dashed var(--gold);vertical-align:middle;margin-inline-start:4px;animation:pulse 1.4s infinite}
+@keyframes pulse{50%{transform:scale(1.15)}}
+.word .ck{position:absolute;top:-9px;left:-9px;width:24px;height:24px;border-radius:50%;background:var(--ink);color:#fff;font-size:11px;display:grid;place-items:center}
+.tap-hint{text-align:center;color:var(--muted);font-size:15px;margin-top:-6px}
+.panel{margin-top:14px}
+.panel .ph{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.panel .ph h3{font-size:17px}
+.panel .ph h3 .w{font-family:"Noto Naskh Arabic",serif;font-size:24px}
+.mini{display:flex;gap:4px}
+.mini i{width:30px;height:6px;border-radius:9px;background:var(--soft);display:block}
+.mini i.ok{background:var(--act)}.mini i.on{background:var(--ink)}
+.q{font-weight:700;margin-bottom:10px;font-size:18px}
+.opts{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.opt{display:flex;align-items:center;gap:10px;padding:14px 16px;border:2px solid var(--line);border-radius:16px;background:#fff;text-align:right;font-weight:600;font-size:17px;transition:all .15s}
+.opt .fi{font-size:18px;color:var(--muted)}
+.opt:hover{border-color:var(--ink2)}
+.opt.wrong{border-color:var(--bad);background:var(--jarr-s);color:var(--bad);animation:shake .35s;opacity:.7}
+.opt.reveal{border-color:var(--ok);border-style:dashed;background:var(--act-s)}
+.sopts{display:grid;gap:10px;grid-template-columns:repeat(3,1fr)}
+.sbtn{border-radius:20px;padding:12px 6px 14px;border:2.5px solid transparent;text-align:center;transition:all .15s}
+.sbtn .mk{display:block;font-family:"Noto Naskh Arabic",serif;font-size:46px;font-weight:700;line-height:1.25}
+.sbtn b{font-size:17px}
+.sbtn:hover{transform:translateY(-2px)}
+.sbtn.wrong{border-color:var(--bad);opacity:.5;animation:shake .35s}
+.sbtn.reveal{border-color:var(--ok);border-style:dashed}
+@keyframes shake{25%{transform:translateX(-5px)}50%{transform:translateX(5px)}75%{transform:translateX(-2px)}}
+.fb{margin-top:12px;padding:12px 14px;border-radius:14px;font-size:16px}
+.fb.bad{background:var(--jarr-s);color:#8E2F4B}
+.fb.hint{background:var(--nasb-s);color:#7A4614}
+.fb .fi{margin-left:6px}
+.tools{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.why{border-radius:18px;background:var(--ink);color:#fff;padding:16px 18px}
+.why h4{margin:0 0 6px;font-family:"Reem Kufi",sans-serif;font-size:19px;display:flex;align-items:center;gap:8px}
+.why .full{font-weight:700;font-size:17px;margin-bottom:6px}
+.why .full .naskh{font-size:20px}
+.why p{margin:0;color:#D5DAE8;font-size:16px}
+
+/* Tree */
+.treebox{margin-top:14px}
+.treebox .th{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.treebox h3{font-size:17px;display:flex;align-items:center;gap:8px}
+.legend{display:flex;gap:6px;flex-wrap:wrap}
+.case{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:99px}
+.case i.dot{width:8px;height:8px;border-radius:50%;display:inline-block;background:currentColor}
+.tree{overflow-x:auto;padding:10px 0 4px}
+.tree ul{display:flex;justify-content:center;padding:20px 0 0;margin:0;position:relative}
+.tree>ul{padding-top:0;width:max-content;min-width:100%;margin:0 auto}
+.tree li{list-style:none;position:relative;padding:20px 5px 0;display:flex;flex-direction:column;align-items:center}
+.tree li::before,.tree li::after{content:"";position:absolute;top:0;right:50%;width:50%;height:20px;border-top:2px solid var(--line)}
+.tree li::after{right:auto;left:50%;border-left:2px solid var(--line)}
+.tree li:only-child::before,.tree li:only-child::after{display:none}
+.tree li:only-child{padding-top:0}
+.tree li:first-child::after,.tree li:last-child::before{border:0}
+.tree li:first-child::before{border-right:2px solid var(--line);border-radius:0 10px 0 0}
+.tree li:last-child::after{border-radius:10px 0 0 0}
+.tree ul ul::before{content:"";position:absolute;top:0;left:50%;height:20px;border-left:2px solid var(--line)}
+.tree>ul>li{padding-top:0}
+.tree>ul>li::before,.tree>ul>li::after{display:none}
+.tnode{border-radius:14px;padding:8px 10px;text-align:center;background:#fff;border:1.5px solid var(--line);min-width:86px;transition:all .3s}
+.tnode.root{background:var(--ink);color:#fff;border-color:var(--ink);font-weight:700;font-size:14px;padding:8px 16px}
+.tnode.grp{background:var(--soft);font-size:13px;font-weight:600;color:var(--ink2);white-space:nowrap}
+.tnode .tw{font-family:"Noto Naskh Arabic",serif;font-size:21px;font-weight:700;line-height:1.5}
+.tnode .tr{font-size:13px;font-weight:700;margin-top:2px}
+.tnode .ts{font-size:11.5px;opacity:.85;max-width:120px;line-height:1.4}
+.tnode.pending{border-style:dashed;color:var(--muted)}
+.tnode.pending .tr{color:#B9B2A6}
+.tnode.raf{border-color:var(--raf)}.tnode.nasb{border-color:var(--nasb)}.tnode.jarr{border-color:var(--jarr)}.tnode.act{border-color:var(--act)}
+@media(max-width:600px){.tnode{min-width:64px;padding:6px 7px}.tnode .tw{font-size:17px}.tnode .ts{font-size:10.5px;max-width:84px}.tree li{padding-left:3px;padding-right:3px}.word{font-size:30px;padding:4px 13px 8px}.sbtn .mk{font-size:40px}}
+
+/* Modal */
+.modal{position:fixed;inset:0;background:rgba(31,42,68,.45);z-index:50;display:none;align-items:center;justify-content:center;padding:16px}
+.modal.on{display:flex}
+.modal .box{background:var(--card);border-radius:26px;max-width:500px;width:100%;max-height:88vh;overflow:auto;padding:24px;animation:fade .25s}
+.modal h3{font-family:"Reem Kufi",sans-serif;font-size:25px;text-align:center}
+.bigstars{display:flex;justify-content:center;gap:8px;font-size:40px;color:#E4DCCD;margin:8px 0}
+.bigstars .on{color:var(--gold);animation:pop .5s ease both}
+.bigstars .on:nth-child(2){animation-delay:.15s}.bigstars .on:nth-child(3){animation-delay:.3s}
+@keyframes pop{0%{transform:scale(0)}70%{transform:scale(1.25)}100%{transform:scale(1)}}
+.parse-list{display:grid;gap:8px;margin:14px 0}
+.parse-list div{background:var(--soft);border-radius:12px;padding:10px 12px;font-size:15px}
+.parse-list b{font-family:"Noto Naskh Arabic",serif;font-size:19px;margin-left:6px}
+.newbadges{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:10px 0}
+.row-btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:8px}
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:70;overflow:hidden}
+.confetti i{position:absolute;top:-20px;width:10px;height:14px;border-radius:3px;animation:fall 1.8s ease-in forwards}
+@keyframes fall{to{transform:translateY(105vh) rotate(540deg);opacity:.6}}
+
+/* Badges & stats */
+.badges{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.badge{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;text-align:center}
+.badge .ic{width:54px;height:54px;border-radius:17px;display:grid;place-items:center;margin:0 auto 8px;font-size:24px;background:var(--soft);color:#B9B2A6}
+.badge.got .ic{background:var(--nasb-s);color:var(--nasb)}
+.badge b{display:block;font-size:14px}
+.badge small{color:var(--muted);font-size:12px;line-height:1.5;display:block}
+.badge:not(.got){opacity:.6}
+.stats{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px}
+.stat .v{font-size:26px;font-weight:700}
+.stat .l{font-size:13px;color:var(--muted)}
+.bars{display:grid;gap:10px}
+.hbar{display:grid;grid-template-columns:minmax(90px,170px) 1fr 54px;gap:10px;align-items:center;font-size:14px}
+.hbar .lb{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:13.5px}
+.hbar .t{height:12px;background:var(--soft);border-radius:9px;overflow:hidden}
+.hbar .t i{display:block;height:100%;border-radius:9px}
+.hbar .v{font-size:13px;color:var(--muted)}
+
+/* Teacher */
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th{font-size:12.5px;color:var(--muted);font-weight:600}
+.tablewrap{overflow-x:auto}
+.up{color:var(--ok);font-weight:700}
+.pinbox{display:flex;gap:10px;justify-content:center;direction:ltr;margin:12px 0 16px}
+.pinbox input{width:56px;height:64px;text-align:center;font-size:28px;font-weight:700;border:2px solid var(--line);border-radius:16px;background:#fff;outline:none}
+.pinbox input:focus{border-color:var(--ink)}
+.toast{position:fixed;bottom:calc(96px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 18px;border-radius:99px;font-size:14px;opacity:0;transition:all .3s;z-index:80;pointer-events:none;white-space:nowrap}
+.toast.on{opacity:1;transform:translateX(-50%)}
+.empty{text-align:center;color:var(--muted);padding:20px}
+.toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.toolbar select{padding:8px 12px;border:1px solid var(--line);border-radius:12px;background:#fff}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" onclick="go('home');return false" aria-label="عرّبها"><svg class="" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="gA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#24345A"/><stop offset="1" stop-color="#16203A"/></linearGradient></defs><rect width="512" height="512" fill="url(#gA)"/><path transform="translate(146.6 289.1) scale(0.56)" d="M142 200Q99 186 66.5 150.0Q34 114 34 59Q34 22 44.0 -4.5Q54 -31 70 -53Q40 -81 29.5 -116.0Q19 -151 25.5 -187.0Q32 -223 52.5 -253.0Q73 -283 105.0 -301.5Q137 -320 178 -320Q212 -320 236.5 -303.5Q261 -287 275.5 -264.5Q290 -242 292 -224Q267 -243 244.0 -250.5Q221 -258 202 -254Q185 -252 171.5 -236.5Q158 -221 158 -204Q158 -187 169.0 -172.5Q180 -158 201.5 -149.0Q223 -140 256 -140H359L299 0H236Q224 0 207.0 7.5Q190 15 177.5 30.5Q165 46 165 72Q165 104 182.0 123.5Q199 143 225.5 151.5Q252 160 282.5 161.0Q313 162 341.5 158.0Q370 154 389 147Q372 168 342.0 182.0Q312 196 276.5 203.0Q241 210 206.0 209.5Q171 209 142 200Z" fill="#F7EFE2"/><rect x="160" y="74" width="66" height="22" rx="11" transform="rotate(-18 193 85)" fill="#F2A65A"/><circle cx="322" cy="86" r="17" fill="none" stroke="#6CC3B0" stroke-width="11"/><rect x="214" y="430" width="66" height="22" rx="11" transform="rotate(-18 247 441)" fill="#E9708A"/></svg><span>عرّبها</span><small>رابع ابتدائي</small></a>
+    <span class="spacer"></span>
+    <nav class="tabs" id="tabs"></nav>
+    <button class="iconbtn" id="soundBtn" onclick="toggleSound()" aria-label="الصوت"></button>
+    <button class="who" onclick="switchStudent()"><i class="fi fi-rr-user"></i><span id="whoName">دخول</span></button>
+    <span class="chip"><i class="fi fi-sr-star"></i><span id="starsVal">٠</span></span>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- HOME -->
+  <section class="view" id="v-home">
+    <div class="hero">
+      <div>
+        <svg class="mark" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="gB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#24345A"/><stop offset="1" stop-color="#16203A"/></linearGradient></defs><rect width="512" height="512" fill="url(#gB)"/><path transform="translate(146.6 289.1) scale(0.56)" d="M142 200Q99 186 66.5 150.0Q34 114 34 59Q34 22 44.0 -4.5Q54 -31 70 -53Q40 -81 29.5 -116.0Q19 -151 25.5 -187.0Q32 -223 52.5 -253.0Q73 -283 105.0 -301.5Q137 -320 178 -320Q212 -320 236.5 -303.5Q261 -287 275.5 -264.5Q290 -242 292 -224Q267 -243 244.0 -250.5Q221 -258 202 -254Q185 -252 171.5 -236.5Q158 -221 158 -204Q158 -187 169.0 -172.5Q180 -158 201.5 -149.0Q223 -140 256 -140H359L299 0H236Q224 0 207.0 7.5Q190 15 177.5 30.5Q165 46 165 72Q165 104 182.0 123.5Q199 143 225.5 151.5Q252 160 282.5 161.0Q313 162 341.5 158.0Q370 154 389 147Q372 168 342.0 182.0Q312 196 276.5 203.0Q241 210 206.0 209.5Q171 209 142 200Z" fill="#F7EFE2"/><rect x="160" y="74" width="66" height="22" rx="11" transform="rotate(-18 193 85)" fill="#F2A65A"/><circle cx="322" cy="86" r="17" fill="none" stroke="#6CC3B0" stroke-width="11"/><rect x="214" y="430" width="66" height="22" rx="11" transform="rotate(-18 247 441)" fill="#E9708A"/></svg>
+        <h1 style="margin-top:12px">عرّبها</h1>
+        <div class="slogan">افهمي <b>موقع الكلمة</b>، وأتقني <b>إعرابها</b></div>
+        <p>دروس نحو تفاعلية للصف الرابع: اضغطي على الكلمة، واعرفي موقعها في الجملة، ثم اختاري علامة إعرابها، واجمعي النجوم!</p>
+        <div class="ctas">
+          <button class="btn" onclick="go('lessons')"><i class="fi fi-rr-play"></i> ابدئي الدروس</button>
+          <button class="btn ghost" onclick="go('teacher')"><i class="fi fi-rr-chalkboard-user"></i> لوحة المعلمة</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="tag" style="margin-bottom:12px"><i class="fi fi-rr-bulb"></i> علامات الإعراب الأصلية</div>
+        <div class="signs3">
+          <div class="s3 raf"><span class="mk">ـُ</span><b>الضمة</b><small>علامة الرفع</small><em>الفاعل • المبتدأ • الخبر</em></div>
+          <div class="s3 nasb"><span class="mk">ـَ</span><b>الفتحة</b><small>علامة النصب</small><em>المفعول به</em></div>
+          <div class="s3 jarr"><span class="mk">ـِ</span><b>الكسرة</b><small>علامة الجر</small><em>الاسم المجرور</em></div>
+        </div>
+      </div>
+    </div>
+    <h2 class="sec" style="margin-top:26px"><i class="fi fi-rr-route"></i> كيف ألعب؟</h2>
+    <div class="steps4">
+      <div class="step4"><div class="n"><i class="fi fi-rr-book-open-reader"></i></div><h3>١. اقرئي القاعدة</h3><p>شرح قصير مع مثال ملوّن في بداية كل درس.</p></div>
+      <div class="step4"><div class="n"><i class="fi fi-rr-cursor-finger"></i></div><h3>٢. أعربي الجملة</h3><p>اضغطي كل كلمة، واختاري موقعها وعلامتها.</p></div>
+      <div class="step4"><div class="n"><i class="fi fi-rr-pen-clip"></i></div><h3>٣. ضعي الحركة</h3><p>اختاري الحركة الصحيحة على آخر الكلمة.</p></div>
+      <div class="step4"><div class="n"><i class="fi fi-rr-trophy"></i></div><h3>٤. اجمعي النجوم</h3><p>نجوم وشارات، ودرس جديد يُفتح كل مرة.</p></div>
+    </div>
+  </section>
+
+  <!-- LOGIN -->
+  <section class="view" id="v-login">
+    <div class="card login">
+      <h2 class="sec"><i class="fi fi-rr-user-graduate"></i> أهلًا بكِ يا بطلة</h2>
+      <p class="lead">اكتبي اسمك ليُحفظ تقدمك ونجومك.</p>
+      <div class="field"><label for="inName">اسمي</label><input id="inName" placeholder="مثال: جود" autocomplete="off"></div>
+      <div class="field"><label for="inClass">فصلي</label><input id="inClass" placeholder="مثال: ٤/١" autocomplete="off"></div>
+      <div id="knownList"></div>
+      <button class="btn" style="width:100%" onclick="doLogin()"><i class="fi fi-rr-arrow-left"></i> هيا نبدأ</button>
+    </div>
+  </section>
+
+  <!-- LESSONS -->
+  <section class="view" id="v-lessons">
+    <h2 class="sec"><i class="fi fi-rr-book-alt"></i> دروس النحو</h2>
+    <p class="lead">أنهي «أعربي الجمل» في كل درس ليُفتح الدرس الذي بعده.</p>
+    <div class="lessons" id="lessonsList"></div>
+  </section>
+
+  <!-- LESSON -->
+  <section class="view" id="v-lesson">
+    <div class="playhead"><button class="btn ghost sm" onclick="go('lessons')"><i class="fi fi-rr-arrow-right"></i> الدروس</button></div>
+    <div class="card rule" id="ruleBox"></div>
+    <div class="acts" id="actsBox"></div>
+  </section>
+
+  <!-- PLAY -->
+  <section class="view" id="v-play">
+    <div class="playhead">
+      <button class="btn ghost sm" onclick="openLesson(G.L.id)"><i class="fi fi-rr-arrow-right"></i> رجوع</button>
+      <div><div class="muted" style="font-size:13px" id="playLesson"></div><h2 id="playMode"></h2></div>
+      <span class="spacer"></span>
+      <div class="dots" id="dots"></div>
+    </div>
+    <div class="card">
+      <div class="qtop" id="qTop"></div>
+      <div class="sentence" id="sentence"></div>
+      <div class="tap-hint" id="tapHint"></div>
+    </div>
+    <div class="card panel" id="panel"></div>
+    <div class="card treebox" id="treebox">
+      <div class="th">
+        <h3><i class="fi fi-rr-sitemap"></i> شجرة الإعراب</h3>
+        <div class="legend">
+          <span class="case raf"><i class="dot"></i> مرفوع</span>
+          <span class="case nasb"><i class="dot"></i> منصوب</span>
+          <span class="case jarr"><i class="dot"></i> مجرور</span>
+          <span class="case act"><i class="dot"></i> فعل / حرف</span>
+        </div>
+      </div>
+      <div class="tree" id="tree"></div>
+    </div>
+  </section>
+
+  <!-- ME -->
+  <section class="view" id="v-me">
+    <h2 class="sec"><i class="fi fi-rr-medal"></i> إنجازاتي</h2>
+    <p class="lead" id="meLead"></p>
+    <div class="stats" id="meStats"></div>
+    <h2 class="sec" style="margin-top:22px;font-size:18px"><i class="fi fi-rr-badge"></i> شاراتي</h2>
+    <div class="badges" id="meBadges" style="margin-top:10px"></div>
+    <div class="card" style="margin-top:18px"><h3 style="font-size:16px;margin-bottom:12px">نجومي في الدروس</h3><div class="bars" id="meLessons"></div></div>
+  </section>
+
+  <!-- TEACHER -->
+  <section class="view" id="v-teacher">
+    <h2 class="sec"><i class="fi fi-rr-chalkboard-user"></i> لوحة المعلمة</h2>
+    <div id="teacherBox"></div>
+  </section>
+</main>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()"><div class="box" id="modalBox"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ===================== المحتوى ===================== */
+const ROLE_INFO={
+  'فعل':{cls:'act',icon:'fi-rr-running',def:'كلمة تدل على عمل حدث'},
+  'فاعل':{cls:'raf',icon:'fi-rr-user',def:'اسم يدل على مَن قام بالفعل'},
+  'مفعول به':{cls:'nasb',icon:'fi-rr-bullseye-arrow',def:'اسم يدل على ما وقع عليه الفعل'},
+  'حرف جر':{cls:'act',icon:'fi-rr-link-alt',def:'حرف يأتي قبل الاسم فيجعله مجرورًا، مثل: من، إلى، عن، على، في'},
+  'اسم مجرور':{cls:'jarr',icon:'fi-rr-arrow-small-down',def:'اسم يأتي بعد حرف الجر'},
+  'مبتدأ':{cls:'raf',icon:'fi-rr-flag-alt',def:'اسم نبدأ به الجملة لنتحدث عنه'},
+  'خبر':{cls:'raf',icon:'fi-rr-comment-alt',def:'اسم نُخبر به عن المبتدأ فيكمل المعنى'}
+};
+const ROLE_AL={'فاعل':'الفاعل','مفعول به':'المفعول به','اسم مجرور':'الاسم المجرور','مبتدأ':'المبتدأ','خبر':'الخبر'};
+const SIGN={
+  d:{name:'الضمة',mark:'ـُ',kase:'مرفوع',caseN:'الرفع',his:'رفعه',cls:'raf'},
+  f:{name:'الفتحة',mark:'ـَ',kase:'منصوب',caseN:'النصب',his:'نصبه',cls:'nasb'},
+  k:{name:'الكسرة',mark:'ـِ',kase:'مجرور',caseN:'الجر',his:'جره',cls:'jarr'}
+};
+const ROLE_SIGN={'فاعل':'d','مبتدأ':'d','خبر':'d','مفعول به':'f','اسم مجرور':'k'};
+const ROLE_HINT={
+  'فعل':['هل تدل الكلمة على عمل أو حدث؟','جرّبي أن تقولي: «قد {w}». يصح؟ إذن هي فعل.'],
+  'فاعل':['اسألي: مَن الذي {verb}؟','الذي {verb} هو «{w}»، فهو مَن قام بالفعل.'],
+  'مفعول به':['اسألي: {verb} {subj} ماذا؟','الشيء الذي وقع عليه الفعل هو «{w}».'],
+  'حرف جر':['هل هي من حروف الجر: من، إلى، عن، على، في؟','«{w}» من حروف الجر، وبعدها اسم آخره مكسور.'],
+  'اسم مجرور':['انظري إلى الكلمة التي قبلها «{prev}»، ما نوعها؟','«{prev}» حرف جر، فماذا نسمي الاسم الذي بعده؟'],
+  'مبتدأ':['بماذا بدأت الجملة: بفعل أم باسم؟','الجملة بدأت باسم نتحدث عنه، وهو «{w}».'],
+  'خبر':['ماذا أخبرتنا الجملة عن «{first}»؟','«{w}» أكمل المعنى وأخبرنا عن «{first}».']
+};
+const ROLE_WHY={
+  'فعل':c=>`«${c.w}» كلمة تدل على عمل حدث في الماضي، فهي فعل ماضٍ مبني على الفتح.`,
+  'فاعل':c=>`«${c.w}» هو الذي قام بالفعل «${c.verb}»، فهو فاعل. والفاعل مرفوع دائمًا، وعلامة رفعه الضمة.`,
+  'مفعول به':c=>`«${c.w}» هو الذي وقع عليه الفعل «${c.verb}»، فهو مفعول به. والمفعول به منصوب دائمًا، وعلامة نصبه الفتحة.`,
+  'حرف جر':c=>`«${c.w}» حرف جر، جاء قبل الاسم «${c.next}» فجعله مجرورًا.`,
+  'اسم مجرور':c=>`«${c.w}» جاء بعد حرف الجر «${c.prev}»، فهو اسم مجرور، وعلامة جره الكسرة.`,
+  'مبتدأ':c=>`«${c.w}» اسم بدأنا به الجملة لنتحدث عنه، فهو مبتدأ مرفوع، وعلامة رفعه الضمة.`,
+  'خبر':c=>`«${c.w}» أخبرنا عن «${c.first}» وأكمل المعنى، فهو خبر مرفوع، وعلامة رفعه الضمة.`
+};
+
+const LESSONS=[
+ {id:1,title:'الفعل والفاعل',icon:'fi-rr-running',cls:'raf',known:['فعل','فاعل'],
+  rule:'<b>الفعل</b> كلمة تدل على عمل. و<b>الفاعل</b> اسم يدل على مَن قام بهذا العمل، وهو <b style="color:var(--raf)">مرفوع</b> دائمًا وعلامة رفعه <b style="color:var(--raf)">الضمة</b>.',
+  ex:'نامَ الطفلُ',
+  sents:['نامَ:فعل الطفلُ:فاعل','طارَ:فعل العصفورُ:فاعل','حضرَ:فعل الضيفُ:فاعل','نجحَ:فعل الطالبُ:فاعل','سبحَ:فعل السمكُ:فاعل']},
+ {id:2,title:'المفعول به',icon:'fi-rr-bullseye-arrow',cls:'nasb',known:['فعل','فاعل','مفعول به'],
+  rule:'<b>المفعول به</b> اسم يدل على ما وقع عليه الفعل، وهو <b style="color:var(--nasb)">منصوب</b> دائمًا وعلامة نصبه <b style="color:var(--nasb)">الفتحة</b>.',
+  ex:'أكلَ الولدُ التفاحةَ',
+  sents:['أكلَ:فعل الولدُ:فاعل التفاحةَ:مفعول به','قرأَ:فعل الطالبُ:فاعل الكتابَ:مفعول به','شربَ:فعل الطفلُ:فاعل الحليبَ:مفعول به','رسمَ:فعل الفنانُ:فاعل اللوحةَ:مفعول به','زرعَ:فعل الفلاحُ:فاعل الشجرةَ:مفعول به']},
+ {id:3,title:'حروف الجر والاسم المجرور',icon:'fi-rr-link-alt',cls:'jarr',known:['فعل','فاعل','مفعول به','حرف جر','اسم مجرور'],
+  rule:'من <b>حروف الجر</b>: من، إلى، عن، على، في. والاسم الذي يأتي بعدها يكون <b style="color:var(--jarr)">مجرورًا</b> وعلامة جره <b style="color:var(--jarr)">الكسرة</b>.',
+  ex:'ذهبَ الطالبُ إلى المدرسةِ',
+  sents:['ذهبَ:فعل الطالبُ:فاعل إلى:حرف جر المدرسةِ:اسم مجرور','جلسَ:فعل الجدُّ:فاعل في:حرف جر الحديقةِ:اسم مجرور','نامَ:فعل القطُّ:فاعل على:حرف جر الكرسيِّ:اسم مجرور','خرجَ:فعل الطفلُ:فاعل من:حرف جر البيتِ:اسم مجرور','طارَ:فعل العصفورُ:فاعل إلى:حرف جر العشِّ:اسم مجرور']},
+ {id:4,title:'المبتدأ والخبر',icon:'fi-rr-flag-alt',cls:'raf',known:['مبتدأ','خبر','فاعل','مفعول به'],
+  rule:'الجملة الاسمية تبدأ باسم يسمى <b>المبتدأ</b>، ويأتي بعده <b>الخبر</b> ليكمل المعنى، وكلاهما <b style="color:var(--raf)">مرفوع</b> وعلامة رفعه <b style="color:var(--raf)">الضمة</b>.',
+  ex:'الشمسُ مشرقةٌ',
+  sents:['الشمسُ:مبتدأ مشرقةٌ:خبر','القمرُ:مبتدأ منيرٌ:خبر','الطالبةُ:مبتدأ نشيطةٌ:خبر','الماءُ:مبتدأ باردٌ:خبر','العلمُ:مبتدأ نافعٌ:خبر']},
+ {id:5,title:'مراجعة شاملة',icon:'fi-rr-trophy',cls:'act',known:['فعل','فاعل','مفعول به','حرف جر','اسم مجرور','مبتدأ','خبر'],
+  rule:'وقت التحدي! جمل منوّعة على كل ما تعلّمتِه: <b>الفعل والفاعل والمفعول به</b>، و<b>الاسم المجرور</b>، و<b>المبتدأ والخبر</b>.',
+  ex:'كتبَ الطالبُ الدرسَ',
+  sents:['كتبَ:فعل الطالبُ:فاعل الدرسَ:مفعول به','لعبَ:فعل الأطفالُ:فاعل في:حرف جر الملعبِ:اسم مجرور','السماءُ:مبتدأ صافيةٌ:خبر','قطفَ:فعل الفلاحُ:فاعل الثمرَ:مفعول به','البحرُ:مبتدأ واسعٌ:خبر']}
+];
+const MARKS={'ُ':'d','ٌ':'d','َ':'f','ً':'f','ِ':'k','ٍ':'k'};
+const lastSign=w=>{const m=w.match(/[ً-ِ]$/);return m?MARKS[m[0]]:null};
+const bare=w=>w.replace(/[ً-ِ]$/,'');
+LESSONS.forEach(L=>{L.items=L.sents.map((s,i)=>({id:`${L.id}-${i}`,words:s.split(/ (?=[^ ]+:)/).map(p=>{const [w,r]=p.split(':');return {w,r,s:ROLE_SIGN[r]?lastSign(w):null}})}))});
+const textOf=s=>s.words.map(x=>x.w).join(' ');
+
+const BADGES=[
+ {id:'first',t:'الخطوة الأولى',d:'أعربي أول جملة',ic:'fi-rr-flag-alt'},
+ {id:'perfect',t:'بلا أخطاء',d:'جملة كاملة بثلاث نجوم',ic:'fi-rr-bullseye-arrow'},
+ {id:'l1',t:'صديقة الفاعل',d:'أنهي درس الفعل والفاعل',ic:'fi-rr-running'},
+ {id:'l2',t:'صائدة المفعول به',d:'أنهي درس المفعول به',ic:'fi-rr-bullseye-arrow'},
+ {id:'l3',t:'خبيرة حروف الجر',d:'أنهي درس الاسم المجرور',ic:'fi-rr-link-alt'},
+ {id:'l4',t:'سيدة الجملة الاسمية',d:'أنهي درس المبتدأ والخبر',ic:'fi-rr-flag-alt'},
+ {id:'l5',t:'بطلة المراجعة',d:'أنهي المراجعة الشاملة',ic:'fi-rr-crown'},
+ {id:'haraka',t:'ضابطة الحركات',d:'أنهي «ضعي الحركة» في درس كامل',ic:'fi-rr-pen-clip'},
+ {id:'s50',t:'جامعة النجوم',d:'اجمعي ٥٠ نجمة',ic:'fi-rr-star'}
+];
+
+/* ===================== التخزين ===================== */
+const KEY='arribha4_v1';
+let DB=null;
+try{DB=JSON.parse(localStorage.getItem(KEY))}catch(e){}
+if(!DB||!DB.students)DB={students:{},current:null,settings:{pin:'1234',unlockAll:false,sound:true}};
+DB.dirty=DB.dirty||[];
+function localSave(){try{localStorage.setItem(KEY,JSON.stringify(DB))}catch(e){}}
+function save(){
+  if(DB.current&&DB.students[DB.current]&&!DB.dirty.includes(DB.current))DB.dirty.push(DB.current);
+  localSave();queuePush();
+}
+
+/* ===================== قاعدة البيانات (Supabase) ===================== */
+const SB_URL='https://hcvbjrflgxbvumqsfsue.supabase.co';
+const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhjdmJqcmZsZ3hidnVtcXNmc3VlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMzMjI4MjUsImV4cCI6MjEwODg5ODgyNX0.Aqi6xbyMtetWDcJogAZtnYlFiPbG0qIdCUyFBXXv-kE';
+const SB_T=SB_URL+'/rest/v1/arribha4_progress';
+const UPSERT={method:'POST',headers:{Prefer:'resolution=merge-duplicates,return=minimal'}};
+const sid=s=>`${(s.cls||'').trim()}|${s.name}`;
+const cloud={ok:null,at:null};
+async function sb(q,opt={}){
+  const r=await fetch(SB_T+q,{...opt,headers:{apikey:SB_KEY,Authorization:'Bearer '+SB_KEY,'Content-Type':'application/json',...(opt.headers||{})}});
+  if(!r.ok)throw new Error(r.status+' '+(await r.text()));
+  cloud.ok=true;const t=await r.text();return t?JSON.parse(t):null;
+}
+function normStudent(s){s.prog=s.prog||{};s.errors=s.errors||{};s.badges=s.badges||[];s.tries=s.tries||0;s.right=s.right||0;s.last=s.last||Date.now();return s}
+let pushT=null,pushing=false;
+function queuePush(){clearTimeout(pushT);pushT=setTimeout(pushNow,700)}
+async function pushNow(){
+  if(pushing||!DB.dirty.length)return;
+  pushing=true;
+  const names=DB.dirty.slice();
+  const rows=names.map(n=>DB.students[n]).filter(Boolean).map(s=>({id:sid(s),name:s.name,cls:s.cls||'',data:s,updated_at:new Date(s.last||Date.now()).toISOString()}));
+  try{
+    if(rows.length)await sb('?on_conflict=id',{...UPSERT,body:JSON.stringify(rows)});
+    DB.dirty=DB.dirty.filter(n=>!names.includes(n));localSave();
+  }catch(e){cloud.ok=false;console.warn('sync',e)}
+  pushing=false;
+}
+async function sha(v){
+  try{const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode('arribha4:'+v));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}catch(e){return null}
+}
+async function pullSettings(){
+  try{
+    const r=await sb('?id=eq.__settings&select=data');
+    if(r&&r[0]){const d=r[0].data||{};if(typeof d.unlockAll==='boolean')DB.settings.unlockAll=d.unlockAll;if(d.pinHash)DB.settings.pinHash=d.pinHash;localSave();if(curView==='lessons')renderLessons()}
+  }catch(e){cloud.ok=false}
+}
+async function pushSettings(){
+  try{await sb('?on_conflict=id',{...UPSERT,body:JSON.stringify([{id:'__settings',name:'__settings',cls:'',data:{unlockAll:DB.settings.unlockAll,pinHash:DB.settings.pinHash||null},updated_at:new Date().toISOString()}])});return true}
+  catch(e){cloud.ok=false;toast('تعذر الحفظ في قاعدة البيانات، تحققي من الإنترنت');return false}
+}
+window.addEventListener('online',pushNow);
+setInterval(()=>{if(DB.dirty.length)pushNow()},20000);
+const me=()=>DB.current&&DB.students[DB.current]?DB.students[DB.current]:null;
+const newStudent=(name,cls)=>({name,cls,prog:{},badges:[],errors:{},tries:0,right:0,created:Date.now(),last:Date.now()});
+const progOf=(s,lid,mode)=>(s.prog[lid+mode]=s.prog[lid+mode]||[]);
+const starsOf=s=>Object.values(s.prog).reduce((a,arr)=>a+arr.reduce((b,v)=>b+(v||0),0),0);
+const lessonDone=(s,L)=>L.items.every((_,i)=>progOf(s,L.id,'p')[i]);
+const lessonOpen=(s,i)=>i===0||DB.settings.unlockAll||lessonDone(s,LESSONS[i-1]);
+
+/* ===================== أدوات ===================== */
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const ar=n=>String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const fill=(t,c)=>t.replace(/\{(\w+)\}/g,(_,k)=>c[k]||'');
+const starsHTML=(n,max=3)=>`<span class="stars">${Array.from({length:max},(_,k)=>`<i class="fi fi-sr-star ${k<n?'on':''}"></i>`).join('')}</span>`;
+function toast(m){const t=$('toast');t.textContent=m;t.classList.add('on');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('on'),2200)}
+let AC;
+function beep(ok){
+  if(!DB.settings.sound)return;
+  try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();const t=AC.currentTime,o=AC.createOscillator(),g=AC.createGain();o.connect(g);g.connect(AC.destination);o.type=ok?'sine':'triangle';
+    if(ok){o.frequency.setValueAtTime(660,t);o.frequency.setValueAtTime(990,t+.1)}else{o.frequency.setValueAtTime(240,t);o.frequency.setValueAtTime(180,t+.1)}
+    g.gain.setValueAtTime(.14,t);g.gain.exponentialRampToValueAtTime(.001,t+.3);o.start(t);o.stop(t+.32)}catch(e){}
+}
+function toggleSound(){DB.settings.sound=!DB.settings.sound;save();paintSound();toast(DB.settings.sound?'الصوت يعمل':'الصوت متوقف')}
+function paintSound(){$('soundBtn').innerHTML=`<i class="fi ${DB.settings.sound?'fi-rr-volume':'fi-rr-volume-mute'}"></i>`}
+function confetti(){
+  const c=document.createElement('div');c.className='confetti';
+  const cols=['#4767D6','#D9822F','#D2547A','#2A9580','#F2A65A'];
+  for(let i=0;i<40;i++){const p=document.createElement('i');p.style.left=Math.random()*100+'%';p.style.background=cols[i%5];p.style.animationDelay=Math.random()*.5+'s';p.style.transform=`rotate(${Math.random()*360}deg)`;c.appendChild(p)}
+  document.body.appendChild(c);setTimeout(()=>c.remove(),2600);
+}
+function ctx(sent,i){
+  const ws=sent.words,v=ws.find(x=>x.r==='فعل'),sb=ws.find(x=>x.r==='فاعل');
+  return {w:ws[i].w,verb:v?v.w:'',subj:sb?sb.w:'',first:ws[0].w,prev:i>0?ws[i-1].w:'',next:ws[i+1]?ws[i+1].w:''};
+}
+function fullParse(x){
+  if(x.r==='فعل')return 'فعل ماضٍ مبني على الفتح';
+  if(x.r==='حرف جر')return 'حرف جر';
+  const S=SIGN[x.s];return `${x.r} ${S.kase} وعلامة ${S.his} ${S.name} الظاهرة على آخره`;
+}
+const kindOf=s=>s.words[0].r==='فعل'?'جملة فعلية':'جملة اسمية';
+
+/* ===================== التنقل ===================== */
+const TABS=[['home','الرئيسية','fi-rr-home'],['lessons','الدروس','fi-rr-book-alt'],['me','إنجازاتي','fi-rr-medal'],['teacher','المعلمة','fi-rr-chalkboard-user']];
+let curView='home',afterLogin=null;
+function renderTabs(){const map={lesson:'lessons',play:'lessons'};const c=map[curView]||curView;$('tabs').innerHTML=TABS.map(([k,t,ic])=>`<button class="${c===k?'on':''}" onclick="go('${k}')"><i class="fi ${ic}"></i><span>${t}</span></button>`).join('')}
+function show(v){curView=v;document.querySelectorAll('section.view').forEach(s=>s.classList.toggle('on',s.id==='v-'+v));renderTabs();refreshTop();window.scrollTo({top:0,behavior:'smooth'})}
+function go(v){
+  if(['lessons','me'].includes(v)&&!me()){afterLogin=v;v='login'}
+  show(v);
+  ({lessons:renderLessons,me:renderMe,teacher:renderTeacher,login:renderLogin})[v]?.();
+}
+function refreshTop(){const s=me();$('starsVal').textContent=ar(s?starsOf(s):0);$('whoName').textContent=s?s.name:'دخول'}
+function switchStudent(){afterLogin='lessons';go('login')}
+
+/* ===================== دخول الطالبة ===================== */
+let knownNames=[];
+function renderLogin(){
+  knownNames=Object.keys(DB.students).sort((a,b)=>DB.students[b].last-DB.students[a].last).slice(0,16);
+  $('inName').value='';$('inClass').value='';
+  $('knownList').innerHTML=knownNames.length?`<div class="field"><label>أو اضغطي على اسمك</label><div class="names">${knownNames.map((n,i)=>`<button class="btn soft sm" onclick="loginAs(knownNames[${i}])">${esc(DB.students[n].name)}</button>`).join('')}</div></div>`:'';
+}
+let loggingIn=false;
+async function doLogin(){
+  const n=$('inName').value.trim().replace(/\s+/g,' '),c=$('inClass').value.trim();
+  if(n.length<2){toast('اكتبي اسمك أولًا');$('inName').focus();return}
+  if(loggingIn)return;loggingIn=true;
+  const btn=document.querySelector('#v-login .btn:last-child');btn.disabled=true;
+  let s=DB.students[n];
+  const probe={name:n,cls:c||(s&&s.cls)||''};
+  // استرجاع تقدم الطالبة إن كانت حلّت من جهاز آخر
+  try{
+    const r=await sb(`?id=eq.${encodeURIComponent(sid(probe))}&select=data`);
+    if(r&&r[0]&&r[0].data){const rem=normStudent(r[0].data);if(!s||(rem.last||0)>(s.last||0))DB.students[n]=s=rem}
+  }catch(e){}
+  if(!s)DB.students[n]=s=newStudent(n,c);
+  else if(c&&c!==s.cls){const old=sid(s);s.cls=c;sb(`?id=eq.${encodeURIComponent(old)}`,{method:'DELETE'}).catch(()=>{})}
+  btn.disabled=false;loggingIn=false;
+  loginAs(n);
+}
+function loginAs(n){DB.current=n;DB.students[n].last=Date.now();save();toast(`أهلًا يا ${DB.students[n].name} 🌟`);go(afterLogin||'lessons');afterLogin=null}
+$('inName').addEventListener('keydown',e=>{if(e.key==='Enter')$('inClass').focus()});
+$('inClass').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin()});
+
+/* ===================== الدروس ===================== */
+function renderLessons(){
+  const s=me();
+  $('lessonsList').innerHTML=LESSONS.map((L,i)=>{
+    const open=lessonOpen(s,i),p=progOf(s,L.id,'p'),h=progOf(s,L.id,'h');
+    const got=[...p,...h].reduce((a,v)=>a+(v||0),0),max=L.items.length*6;
+    return `<button class="lesson ${open?'':'locked'}" onclick="openLesson(${L.id})">
+      ${!open?'<i class="fi fi-rr-lock lock"></i>':lessonDone(s,L)?'<i class="fi fi-sr-badge-check donebadge"></i>':''}
+      <span class="ic ${L.cls}"><i class="fi ${L.icon}"></i></span>
+      <span class="num">الدرس ${ar(L.id)}</span>
+      <h3>${L.title}</h3>
+      <span class="ex">${L.ex}</span>
+      <span class="lstars"><i class="fi fi-sr-star" style="color:var(--gold)"></i> ${ar(got)} / ${ar(max)}<span class="bar"><i style="width:${got/max*100}%"></i></span></span>
+    </button>`}).join('');
+}
+function openLesson(id){
+  const L=LESSONS[id-1],s=me();
+  if(!s){go('lessons');return}
+  show('lesson');
+  const ex=L.items.find(x=>textOf(x)===L.ex)||L.items[0];
+  $('ruleBox').innerHTML=`<div style="display:flex;align-items:center;gap:12px"><span class="lesson" style="padding:0;border:0;box-shadow:none;background:none"><span class="ic ${L.cls}"><i class="fi ${L.icon}"></i></span></span><div><div class="muted" style="font-size:13px">الدرس ${ar(L.id)}</div><h2 style="font-size:24px">${L.title}</h2></div></div>
+    <p>${L.rule}</p>
+    <div class="example">${ex.words.map(x=>{const c=x.s?SIGN[x.s].cls:'act';return `<div class="ex-w"><span class="w ${c}">${x.w}</span><small>${x.r}</small></div>`}).join('')}</div>`;
+  const p=progOf(s,L.id,'p'),h=progOf(s,L.id,'h'),n=L.items.length;
+  const cnt=a=>a.filter(Boolean).length,sum=a=>a.reduce((x,v)=>x+(v||0),0);
+  $('actsBox').innerHTML=`
+    <button class="actcard" onclick="startAct(${L.id},'p')"><span class="ic act"><i class="fi fi-rr-cursor-finger"></i></span><div><h3>أعربي الجمل</h3><p>اضغطي كل كلمة واختاري موقعها وعلامتها</p><div style="margin-top:4px">${starsHTML(Math.round(sum(p)/n))} <span class="muted" style="font-size:13px">${ar(cnt(p))} من ${ar(n)} جمل</span></div></div></button>
+    <button class="actcard" onclick="startAct(${L.id},'h')"><span class="ic nasb"><i class="fi fi-rr-pen-clip"></i></span><div><h3>ضعي الحركة</h3><p>اختاري الحركة الصحيحة على آخر الكلمة</p><div style="margin-top:4px">${starsHTML(Math.round(sum(h)/n))} <span class="muted" style="font-size:13px">${ar(cnt(h))} من ${ar(n)} جمل</span></div></div></button>`;
+}
+
+/* ===================== اللعب ===================== */
+let G=null;
+function startAct(lid,mode,i){
+  const L=LESSONS[lid-1],p=progOf(me(),lid,mode);
+  if(i==null){i=L.items.findIndex((_,k)=>!p[k]);if(i<0)i=0}
+  G={L,mode,i,sent:L.items[i],mist:0,active:null};
+  G.ws=G.sent.words.map(()=>({step:0,hint:0,bad:[],reveal:false,fb:null,done:false,opts:null}));
+  if(mode==='h'){G.targets=G.sent.words.map((x,k)=>x.s?k:-1).filter(k=>k>=0);G.t=0}
+  show('play');renderPlay();
+}
+function renderPlay(){
+  const L=G.L,p=progOf(me(),L.id,G.mode);
+  $('playLesson').textContent=`الدرس ${ar(L.id)}: ${L.title}`;
+  $('playMode').textContent=G.mode==='p'?'أعربي الجملة':'ضعي الحركة المناسبة';
+  $('dots').innerHTML=L.items.map((_,k)=>`<button class="${k===G.i?'cur':p[k]?'done':''}" onclick="startAct(${L.id},'${G.mode}',${k})">${ar(k+1)}</button>`).join('');
+  $('treebox').style.display=G.mode==='p'?'':'none';
+  if(G.mode==='p'){
+    $('qTop').textContent='';
+    $('sentence').innerHTML=G.sent.words.map((x,i)=>{const S=G.ws[i];const c=S.done?'done '+(x.s?SIGN[x.s].cls:'act'):(G.active===i?'active':'');
+      return `<button class="word ${c}" onclick="pick(${i})">${x.w}${S.done?'<span class="ck"><i class="fi fi-rr-check"></i></span>':''}</button>`}).join('');
+    $('tapHint').innerHTML=G.active===null?'<i class="fi fi-rr-cursor-finger"></i> اضغطي على أي كلمة لتبدئي':'';
+    renderParsePanel();renderTree();
+  }else{
+    const cur=G.targets[G.t];
+    $('qTop').textContent='';
+    $('sentence').innerHTML=G.sent.words.map((x,i)=>{
+      if(!x.s)return `<span class="word plain">${x.w}</span>`;
+      const k=G.targets.indexOf(i);
+      if(k<G.t)return `<span class="word done ${SIGN[x.s].cls}">${x.w}</span>`;
+      if(i===cur)return `<span class="word active">${bare(x.w)}<span class="slot"></span></span>`;
+      return `<span class="word future">${bare(x.w)}</span>`;
+    }).join('');
+    $('tapHint').textContent='';
+    renderHarakaPanel();
+  }
+}
+
+/* ---- وضع الإعراب ---- */
+function pick(i){
+  G.active=i;const S=G.ws[i];
+  if(!S.opts){const x=G.sent.words[i];S.opts=roleOpts(x)}
+  renderPlay();setTimeout(()=>$('panel').scrollIntoView({behavior:'smooth',block:'nearest'}),60);
+}
+function roleOpts(x){
+  const inSent=G.sent.words.map(w=>w.r).filter(r=>r!==x.r);
+  let pool=[...new Set([...shuffle(inSent),...shuffle(G.L.known)])].filter(r=>r!==x.r);
+  if(pool.length<2)pool=pool.concat(Object.keys(ROLE_INFO).filter(r=>r!==x.r&&!pool.includes(r)));
+  return shuffle([x.r,...pool.slice(0,3)]);
+}
+function renderParsePanel(){
+  const el=$('panel');
+  if(G.active===null){el.style.display='none';return}
+  el.style.display='';
+  const i=G.active,x=G.sent.words[i],S=G.ws[i],c=ctx(G.sent,i),steps=x.s?2:1;
+  let body='';
+  if(S.done){
+    const nxt=G.ws.findIndex(w=>!w.done);
+    body=`<div class="why"><h4><i class="fi fi-rr-interrogation"></i> لماذا؟</h4>
+      <div class="full"><span class="naskh">${x.w}</span>: ${fullParse(x)}</div><p>${ROLE_WHY[x.r](c)}</p></div>
+      <div class="tools">${nxt>=0?`<button class="btn" onclick="pick(${nxt})">الكلمة التالية <i class="fi fi-rr-arrow-left"></i></button>`:`<button class="btn" onclick="finishSentence()">أنهيتِ الجملة <i class="fi fi-rr-trophy"></i></button>`}</div>`;
+  }else if(S.step===0){
+    body=`<div class="q">ما موقع هذه الكلمة في الجملة؟</div>
+      <div class="opts">${S.opts.map(v=>`<button class="opt ${S.bad.includes(v)?'wrong':''} ${S.reveal&&v===x.r?'reveal':''}" onclick="answerRole('${v}')"><i class="fi ${ROLE_INFO[v].icon}"></i>${v}</button>`).join('')}</div>
+      ${fbHTML(S,ROLE_HINT[x.r].map(h=>fill(h,c)))}`;
+  }else{
+    const S2=SIGN[x.s];
+    body=`<div class="q">ما علامة إعرابها؟ <span class="muted" style="font-weight:500;font-size:15px">انظري إلى آخر حرف</span></div>
+      ${signButtons(S,x.s,'answerSign')}
+      ${fbHTML(S,[`${ROLE_AL[x.r]} ${S2.kase} دائمًا، فما علامة ${S2.caseN}؟`,`علامة ${S2.caseN} هي ${S2.name} ( ${S2.mark} ).`])}`;
+  }
+  el.innerHTML=`<div class="ph"><h3>كلمة <span class="w">«${x.w}»</span></h3><div class="mini">${Array.from({length:steps},(_,k)=>`<i class="${S.done||S.step>k?'ok':S.step===k?'on':''}"></i>`).join('')}</div></div>${body}`;
+}
+function signButtons(S,correct,fn){
+  return `<div class="sopts">${['d','f','k'].map(k=>`<button class="sbtn ${SIGN[k].cls} ${S.bad.includes(k)?'wrong':''} ${S.reveal&&k===correct?'reveal':''}" onclick="${fn}('${k}')"><span class="mk">${SIGN[k].mark}</span><b>${SIGN[k].name}</b></button>`).join('')}</div>`;
+}
+function fbHTML(S,hints){
+  return `${S.fb?`<div class="fb bad"><i class="fi fi-rr-cross-circle"></i>${S.fb}</div>`:''}
+    ${S.hint?`<div class="fb hint"><i class="fi fi-rr-bulb"></i>${hints.slice(0,S.hint).join('<br>')}</div>`:''}
+    <div class="tools"><button class="btn soft sm" onclick="askHint()" ${S.hint>=2||S.reveal?'disabled':''}><i class="fi fi-rr-bulb"></i> ${S.hint?'تلميح آخر':'تلميح'}</button></div>`;
+}
+function askHint(){const S=curState();if(S.hint<2)S.hint++;G.mist+=.5;renderPlay()}
+const curState=()=>G.mode==='p'?G.ws[G.active]:G.ws[G.targets[G.t]];
+function stepCorrect(S){if(!S.bad.length){me().right++;me().tries++}S.bad=[];S.fb=null;S.hint=0;S.reveal=false}
+function stepWrong(S,v,msg,errKey){
+  me().errors[errKey]=(me().errors[errKey]||0)+1;
+  if(!S.bad.length)me().tries++;
+  S.bad.push(v);G.mist++;S.fb=msg;
+  S.hint=Math.min(2,Math.max(S.hint,S.bad.length));
+  if(S.bad.length>=3){S.reveal=true;S.fb='لا بأس! الإجابة الصحيحة محددة بإطار متقطع، اختاريها وتأمّلي السبب.'}
+  beep(false);save();
+}
+function answerRole(v){
+  const i=G.active,x=G.sent.words[i],S=G.ws[i];
+  if(v===x.r){stepCorrect(S);beep(true);if(x.s)S.step=1;else S.done=true;save();renderPlay();return}
+  stepWrong(S,v,`«${v}» ${ROLE_INFO[v].def}. هل ينطبق ذلك على «${x.w}»؟`,`اختارت «${v}» بدل «${x.r}»`);
+  renderParsePanel();
+}
+function answerSign(k){
+  const i=G.active,x=G.sent.words[i],S=G.ws[i];
+  if(k===x.s){stepCorrect(S);beep(true);S.done=true;save();renderPlay();return}
+  stepWrong(S,k,`انظري جيدًا إلى الحركة على آخر حرف في «${x.w}».`,`علامة ${ROLE_AL[x.r]}: اختارت ${SIGN[k].name}`);
+  renderParsePanel();
+}
+
+/* ---- وضع الحركة ---- */
+function renderHarakaPanel(){
+  const el=$('panel');el.style.display='';
+  const i=G.targets[G.t],x=G.sent.words[i],S=G.ws[i],S2=SIGN[x.s];
+  if(S.done){
+    el.innerHTML=`<div class="why"><h4><i class="fi fi-rr-interrogation"></i> لماذا ${S2.name}؟</h4>
+      <div class="full"><span class="naskh">${x.w}</span>: ${fullParse(x)}</div><p>${ROLE_WHY[x.r](ctx(G.sent,i))}</p></div>
+      <div class="tools">${G.t<G.targets.length-1?`<button class="btn" onclick="G.t++;renderPlay()">الكلمة التالية <i class="fi fi-rr-arrow-left"></i></button>`:`<button class="btn" onclick="finishSentence()">أنهيتِ الجملة <i class="fi fi-rr-trophy"></i></button>`}</div>`;
+    return;
+  }
+  el.innerHTML=`<div class="ph"><h3>ما الحركة المناسبة على آخر <span class="w">«${bare(x.w)}»</span>؟</h3><span class="tag">${ar(G.t+1)} / ${ar(G.targets.length)}</span></div>
+    ${signButtons(S,x.s,'answerHaraka')}
+    ${fbHTML(S,[`فكّري: ما موقع «${bare(x.w)}» في الجملة؟`,`«${bare(x.w)}» ${x.r}، و${ROLE_AL[x.r]} ${S2.kase}، وعلامة ${S2.caseN} ${S2.name}.`])}`;
+}
+function answerHaraka(k){
+  const i=G.targets[G.t],x=G.sent.words[i],S=G.ws[i];
+  if(k===x.s){stepCorrect(S);beep(true);S.done=true;save();renderPlay();return}
+  stepWrong(S,k,`ليست ${SIGN[k].name}. ${SIGN[k].name} علامة ${SIGN[k].caseN}، فهل «${bare(x.w)}» ${SIGN[k].kase}؟`,`حركة ${ROLE_AL[x.r]}: اختارت ${SIGN[k].name}`);
+  renderHarakaPanel();
+}
+
+/* ---- نهاية الجملة ---- */
+function finishSentence(){
+  const s=me(),p=progOf(s,G.L.id,G.mode);
+  const stars=G.mist===0?3:G.mist<=2?2:1;
+  const before=starsOf(s);
+  p[G.i]=Math.max(p[G.i]||0,stars);
+  s.last=Date.now();
+  const nb=checkBadges();save();refreshTop();
+  const gained=starsOf(s)-before;
+  const nextI=G.L.items.findIndex((_,k)=>k>G.i&&!p[k]);
+  const allDone=G.L.items.every((_,k)=>p[k]);
+  const nextLesson=LESSONS[G.L.id]&&G.mode==='p'&&allDone&&lessonOpen(s,G.L.id)?LESSONS[G.L.id]:null;
+  const praise=stars===3?'ممتاز! إعراب بلا أخطاء':stars===2?'أحسنتِ! أداء رائع':'أحسنتِ! تتحسّنين كل مرة';
+  $('modalBox').innerHTML=`
+    <h3>${allDone&&nextI<0?'أنهيتِ النشاط كاملًا! 🎉':praise}</h3>
+    <div class="bigstars">${[0,1,2].map(k=>`<i class="fi fi-sr-star ${k<stars?'on':''}"></i>`).join('')}</div>
+    ${gained>0?`<div style="text-align:center;font-weight:700;color:var(--nasb)">+${ar(gained)} نجوم</div>`:''}
+    <div class="parse-list">${G.sent.words.map(x=>`<div><b>${x.w}</b>${fullParse(x)}.</div>`).join('')}</div>
+    ${nb.length?`<div class="newbadges">${nb.map(b=>`<span class="case nasb"><i class="fi ${b.ic}"></i> شارة جديدة: ${b.t}</span>`).join('')}</div>`:''}
+    <div class="row-btns">
+      ${nextI>=0?`<button class="btn" onclick="closeModal();startAct(${G.L.id},'${G.mode}',${nextI})">الجملة التالية <i class="fi fi-rr-arrow-left"></i></button>`:''}
+      ${nextI<0&&G.mode==='p'?`<button class="btn" onclick="closeModal();startAct(${G.L.id},'h')">ضعي الحركة <i class="fi fi-rr-pen-clip"></i></button>`:''}
+      ${nextI<0&&G.mode==='h'&&nextLesson?`<button class="btn" onclick="closeModal();openLesson(${nextLesson.id})">الدرس التالي <i class="fi fi-rr-arrow-left"></i></button>`:''}
+      <button class="btn ghost" onclick="closeModal();openLesson(${G.L.id})">صفحة الدرس</button>
+    </div>`;
+  $('modal').classList.add('on');
+  if(stars===3||nb.length)confetti();
+}
+function closeModal(){$('modal').classList.remove('on')}
+
+/* ---- الشجرة ---- */
+function renderTree(){
+  const ws=G.sent.words,items=[];
+  for(let i=0;i<ws.length;i++){if(ws[i].r==='حرف جر'&&ws[i+1]){items.push({g:'جار ومجرور',idx:[i,i+1]});i++}else items.push({idx:[i]})}
+  const node=i=>{const x=ws[i],S=G.ws[i],c=x.s?SIGN[x.s].cls:'act';
+    return S.done?`<div class="tnode ${c}"><div class="tw">${x.w}</div><div class="tr">${x.r==='فعل'?'فعل ماضٍ':x.r}</div><div class="ts">${x.s?`${SIGN[x.s].kase} بـ${SIGN[x.s].name}`:'مبني'}</div></div>`
+      :`<div class="tnode pending"><div class="tw">${x.w}</div><div class="tr">؟</div></div>`};
+  const li=it=>it.g?`<li><div class="tnode grp">${it.g}</div><ul>${it.idx.map(i=>`<li>${node(i)}</li>`).join('')}</ul></li>`:`<li>${node(it.idx[0])}</li>`;
+  $('tree').innerHTML=`<ul><li><div class="tnode root">${kindOf(G.sent)}</div><ul>${items.map(li).join('')}</ul></li></ul>`;
+}
+
+/* ===================== الشارات ===================== */
+function checkBadges(){
+  const s=me(),got=[];
+  const add=id=>{if(!s.badges.includes(id)){s.badges.push(id);got.push(BADGES.find(b=>b.id===id))}};
+  const all=Object.values(s.prog).flat();
+  if(all.some(Boolean))add('first');
+  if(all.some(v=>v===3))add('perfect');
+  LESSONS.forEach(L=>{if(lessonDone(s,L))add('l'+L.id);if(L.items.every((_,i)=>progOf(s,L.id,'h')[i]))add('haraka')});
+  if(starsOf(s)>=50)add('s50');
+  return got;
+}
+
+/* ===================== إنجازاتي ===================== */
+function renderMe(){
+  const s=me(),solved=Object.values(s.prog).flat().filter(Boolean).length;
+  $('meLead').textContent=`${s.name}${s.cls?' — فصل '+s.cls:''}`;
+  const stat=(v,l,ic)=>`<div class="stat"><div class="l"><i class="fi ${ic}"></i> ${l}</div><div class="v">${v}</div></div>`;
+  $('meStats').innerHTML=stat(ar(starsOf(s)),'نجومي','fi-rr-star')+stat(ar(solved),'جمل أنجزتها','fi-rr-document-signed')+stat(ar(s.badges.length)+' / '+ar(BADGES.length),'شاراتي','fi-rr-medal')+stat(s.tries?ar(Math.round(s.right/s.tries*100))+'٪':'—','إجابات صحيحة من أول مرة','fi-rr-bullseye-arrow');
+  $('meBadges').innerHTML=BADGES.map(b=>`<div class="badge ${s.badges.includes(b.id)?'got':''}"><div class="ic"><i class="fi ${b.ic}"></i></div><b>${b.t}</b><small>${b.d}</small></div>`).join('');
+  $('meLessons').innerHTML=LESSONS.map(L=>{const g=[...progOf(s,L.id,'p'),...progOf(s,L.id,'h')].reduce((a,v)=>a+(v||0),0),m=L.items.length*6;return hbar(L.title,g/m,ar(g)+'/'+ar(m),'var(--gold)')}).join('');
+}
+const hbar=(l,f,v,c)=>`<div class="hbar"><span class="lb" title="${esc(l)}">${esc(l)}</span><div class="t"><i style="width:${Math.max(3,Math.min(1,f)*100)}%;background:${c}"></i></div><span class="v">${v}</span></div>`;
+
+/* ===================== لوحة المعلمة ===================== */
+let teacherOK=false,tClass='all',TD=null;
+async function loadTeacherData(){
+  try{
+    const r=await sb('?select=id,data&order=updated_at.desc&limit=2000');
+    const map={};
+    r.filter(x=>!x.id.startsWith('__')&&x.data).forEach(x=>map[x.id]=normStudent(x.data));
+    Object.values(DB.students).forEach(s=>{const k=sid(s);if(!map[k]||(s.last||0)>(map[k].last||0))map[k]=s});
+    TD=Object.values(map);cloud.at=Date.now();
+  }catch(e){cloud.ok=false;TD=null}
+  if(curView==='teacher'&&teacherOK)renderTeacher();
+}
+setInterval(()=>{if(curView==='teacher'&&teacherOK&&!document.hidden)loadTeacherData()},30000);
+function syncLabel(){
+  const t=d=>new Date(d).toLocaleTimeString('ar-SA',{hour:'numeric',minute:'2-digit'});
+  if(cloud.ok&&cloud.at)return `<span class="tag" style="background:var(--act-s);color:var(--act)"><i class="fi fi-rr-cloud-check"></i> متصل · آخر تحديث ${t(cloud.at)}</span>`;
+  if(cloud.ok===false)return `<span class="tag" style="background:var(--jarr-s);color:var(--jarr)"><i class="fi fi-rr-cloud-disabled"></i> غير متصل، تظهر بيانات هذا الجهاز فقط</span>`;
+  return `<span class="tag"><i class="fi fi-rr-refresh"></i> جاري التحميل…</span>`;
+}
+function renderTeacher(){
+  const box=$('teacherBox');
+  if(!teacherOK){
+    box.innerHTML=`<div class="card login" style="text-align:center">
+      <div style="font-size:34px;color:var(--ink2)"><i class="fi fi-rr-lock"></i></div>
+      <p style="margin:6px 0 0;font-weight:600">أدخلي رمز المرور</p>
+      <div class="pinbox">${[0,1,2,3].map(k=>`<input inputmode="numeric" maxlength="1" data-k="${k}" aria-label="رقم ${k+1}">`).join('')}</div>
+      <p class="muted" style="font-size:13px;margin:0">الرمز الافتراضي ١٢٣٤، ويمكن تغييره من الإعدادات بعد الدخول.</p></div>`;
+    const ins=[...box.querySelectorAll('.pinbox input')];
+    ins.forEach((inp,k)=>{
+      inp.addEventListener('input',()=>{inp.value=inp.value.replace(/[^\d٠-٩]/g,'').slice(-1);if(inp.value&&k<3)ins[k+1].focus();if(ins.every(x=>x.value))checkPin(ins)});
+      inp.addEventListener('keydown',e=>{if(e.key==='Backspace'&&!inp.value&&k>0)ins[k-1].focus()});
+    });
+    setTimeout(()=>ins[0].focus(),100);return;
+  }
+  const allSt=TD||Object.values(DB.students);
+  const classes=[...new Set(allSt.map(s=>s.cls).filter(Boolean))].sort();
+  const st=allSt.filter(s=>tClass==='all'||s.cls===tClass);
+  const solved=s=>Object.values(s.prog).flat().filter(Boolean).length;
+  const tSolved=st.reduce((a,s)=>a+solved(s),0),tStars=st.reduce((a,s)=>a+starsOf(s),0);
+  const tTries=st.reduce((a,s)=>a+s.tries,0),tRight=st.reduce((a,s)=>a+s.right,0);
+  const agg={};st.forEach(s=>Object.entries(s.errors).forEach(([k,v])=>agg[k]=(agg[k]||0)+v));
+  const errs=Object.entries(agg).sort((a,b)=>b[1]-a[1]).slice(0,8),mx=errs[0]?errs[0][1]:1;
+  const stat=(v,l,ic)=>`<div class="stat"><div class="l"><i class="fi ${ic}"></i> ${l}</div><div class="v">${v}</div></div>`;
+  const lessonStars=(s,L)=>[...progOf(s,L.id,'p'),...progOf(s,L.id,'h')].reduce((a,v)=>a+(v||0),0);
+  const fmtDate=t=>new Date(t).toLocaleDateString('ar-SA',{day:'numeric',month:'short'});
+  const sorted=st.slice().sort((a,b)=>starsOf(b)-starsOf(a));
+  box.innerHTML=`
+    <div class="toolbar">
+      <select onchange="tClass=this.value;renderTeacher()"><option value="all">كل الفصول</option>${classes.map(c=>`<option ${tClass===c?'selected':''}>${esc(c)}</option>`).join('')}</select>
+      ${syncLabel()}
+      <span class="spacer"></span>
+      <button class="btn ghost sm" onclick="this.disabled=true;loadTeacherData()"><i class="fi fi-rr-refresh"></i> تحديث</button>
+      <button class="btn ghost sm" onclick="exportCSV()"><i class="fi fi-rr-download"></i> تصدير CSV</button>
+      <button class="btn ghost sm" onclick="teacherOK=false;renderTeacher()"><i class="fi fi-rr-sign-out-alt"></i> خروج</button>
+    </div>
+    <div class="stats">${stat(ar(st.length),'عدد الطالبات','fi-rr-users-alt')}${stat(ar(tSolved),'جمل منجزة','fi-rr-document-signed')}${stat(ar(tStars),'مجموع النجوم','fi-rr-star')}${stat(tTries?ar(Math.round(tRight/tTries*100))+'٪':'—','صحيحة من أول محاولة','fi-rr-bullseye-arrow')}</div>
+    <div class="grid" style="margin-top:14px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+      <div class="card"><h3 style="font-size:16px;margin-bottom:12px"><i class="fi fi-rr-book-alt" style="color:var(--act)"></i> إتقان الدروس <span class="muted" style="font-size:12px;font-weight:500">(نسبة من أنهين «أعربي الجمل»)</span></h3>
+        <div class="bars">${LESSONS.map(L=>{const d=st.filter(s=>lessonDone(s,L)).length;return hbar(L.title,st.length?d/st.length:0,st.length?ar(Math.round(d/st.length*100))+'٪':'—','var(--act)')}).join('')}</div></div>
+      <div class="card"><h3 style="font-size:16px;margin-bottom:12px"><i class="fi fi-rr-exclamation" style="color:var(--jarr)"></i> أكثر الأخطاء شيوعًا</h3>
+        <div class="bars">${errs.length?errs.map(([k,v])=>hbar(k,v/mx,ar(v),'var(--jarr)')).join(''):'<div class="empty">لا توجد أخطاء مسجّلة بعد</div>'}</div></div>
+    </div>
+    <div class="card" style="margin-top:14px"><h3 style="font-size:16px;margin-bottom:8px"><i class="fi fi-rr-stats"></i> تقدم الطالبات</h3>
+      <div class="tablewrap"><table><thead><tr><th>الطالبة</th><th>الفصل</th><th>النجوم</th>${LESSONS.map(L=>`<th title="${L.title}">د${ar(L.id)}</th>`).join('')}<th>الدقة</th><th>أكثر خطأ</th><th>آخر نشاط</th><th></th></tr></thead><tbody>
+      ${sorted.length?sorted.map(s=>{const e=Object.entries(s.errors).sort((a,b)=>b[1]-a[1])[0];return `<tr>
+        <td><b>${esc(s.name)}</b></td><td>${esc(s.cls||'—')}</td><td>${ar(starsOf(s))}</td>
+        ${LESSONS.map(L=>`<td>${lessonDone(s,L)?'<i class="fi fi-sr-check-circle up"></i> ':''}${ar(lessonStars(s,L))}</td>`).join('')}
+        <td>${s.tries?ar(Math.round(s.right/s.tries*100))+'٪':'—'}</td>
+        <td style="white-space:normal;min-width:150px;font-size:13px">${e?esc(e[0]):'—'}</td>
+        <td>${fmtDate(s.last)}</td>
+        <td><button class="iconbtn" style="width:32px;height:32px" onclick="delStudent('${encodeURIComponent(sid(s))}')" aria-label="حذف"><i class="fi fi-rr-trash"></i></button></td></tr>`}).join(''):`<tr><td colspan="${LESSONS.length+7}" class="empty">لا توجد طالبات بعد</td></tr>`}
+      </tbody></table></div>
+      <p class="muted" style="font-size:12.5px;margin-bottom:0">د١ إلى د٥ = نجوم كل درس من ٣٠ (أعربي الجمل + ضعي الحركة).</p></div>
+    <div class="card" style="margin-top:14px"><h3 style="font-size:16px;margin-bottom:12px"><i class="fi fi-rr-settings"></i> الإعدادات</h3>
+      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+        <div class="field"><label>فتح الدروس</label><select onchange="setUnlock(this.value==='1')"><option value="0" ${!DB.settings.unlockAll?'selected':''}>بالتدرج (بعد إنهاء السابق)</option><option value="1" ${DB.settings.unlockAll?'selected':''}>فتح جميع الدروس</option></select></div>
+        <div class="field"><label>تغيير رمز المرور (٤ أرقام)</label><div style="display:flex;gap:6px"><input id="newPin" inputmode="numeric" maxlength="4" placeholder="••••" style="flex:1;min-width:0"><button class="btn sm" onclick="changePin()">حفظ</button></div></div>
+      </div>
+      <p class="muted" style="font-size:13px">تقدّم الطالبات يُحفظ في قاعدة البيانات ويصل من جميع الأجهزة، وتتحدث اللوحة تلقائيًا كل ٣٠ ثانية. الإعدادات ورمز المرور تُطبَّق على كل الأجهزة.</p>
+      <button class="btn ghost sm danger" onclick="resetAll()"><i class="fi fi-rr-trash"></i> حذف جميع البيانات</button>
+    </div>`;
+}
+const toEn=s=>s.replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+async function checkPin(ins){
+  const v=toEn(ins.map(x=>x.value).join(''));
+  await pullSettings();
+  const h=DB.settings.pinHash?await sha(v):null;
+  const ok=DB.settings.pinHash&&h?h===DB.settings.pinHash:v===DB.settings.pin;
+  if(ok){teacherOK=true;tClass='all';TD=null;cloud.at=null;renderTeacher();loadTeacherData()}
+  else{toast('الرمز غير صحيح');beep(false);ins.forEach(x=>x.value='');ins[0].focus()}
+}
+async function changePin(){
+  const v=toEn($('newPin').value.trim());
+  if(!/^\d{4}$/.test(v)){toast('الرمز يجب أن يكون ٤ أرقام');return}
+  DB.settings.pin=v;DB.settings.pinHash=await sha(v);localSave();$('newPin').value='';
+  if(await pushSettings())toast('تم تغيير الرمز على كل الأجهزة');
+}
+async function setUnlock(v){DB.settings.unlockAll=v;localSave();if(await pushSettings())toast('تم الحفظ لكل الأجهزة')}
+async function delStudent(id){
+  id=decodeURIComponent(id);const nm=id.split('|').slice(1).join('|');
+  if(!confirm(`حذف بيانات «${nm}»؟`))return;
+  try{await sb(`?id=eq.${encodeURIComponent(id)}`,{method:'DELETE'})}catch(e){toast('تعذر الحذف، تحققي من الإنترنت');return}
+  Object.keys(DB.students).forEach(n=>{if(sid(DB.students[n])===id){delete DB.students[n];if(DB.current===n)DB.current=null;DB.dirty=DB.dirty.filter(x=>x!==n)}});
+  localSave();refreshTop();toast('تم الحذف');loadTeacherData();
+}
+async function resetAll(){
+  if(!confirm('سيتم حذف بيانات جميع الطالبات من قاعدة البيانات ومن هذا الجهاز. هل أنتِ متأكدة؟'))return;
+  try{await sb('?id=neq.__settings',{method:'DELETE'})}catch(e){toast('تعذر الحذف، تحققي من الإنترنت');return}
+  DB.students={};DB.current=null;DB.dirty=[];localSave();refreshTop();toast('تم حذف البيانات');loadTeacherData();
+}
+function exportCSV(){
+  const rows=[['الطالبة','الفصل','النجوم',...LESSONS.map(L=>L.title),'الدقة %','أكثر خطأ','آخر نشاط']];
+  (TD||Object.values(DB.students)).forEach(s=>{const e=Object.entries(s.errors).sort((a,b)=>b[1]-a[1])[0];
+    rows.push([s.name,s.cls||'',starsOf(s),...LESSONS.map(L=>[...progOf(s,L.id,'p'),...progOf(s,L.id,'h')].reduce((a,v)=>a+(v||0),0)),s.tries?Math.round(s.right/s.tries*100):'',e?e[0]:'',new Date(s.last).toLocaleDateString('en-CA')])});
+  const csv='﻿'+rows.map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n');
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='عرّبها-رابع-النتائج.csv';a.click();
+}
+
+/* ===================== بدء ===================== */
+paintSound();go('home');pullSettings();pushNow();
+</script>
+</body>
+</html>
